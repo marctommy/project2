@@ -1,0 +1,43 @@
+<h2>Post your Party</h2>
+
+<form action='/parties/create' method='post'>
+  <label>
+    Name :
+    <input type='text' name='name' />
+  </label>
+  
+  <label>
+    location :
+    <input type='text' name='location' />
+  </label>
+  
+  <label>
+    date :
+    <input type='date' name='date' />
+  </label>
+ 
+  <label>
+    start :
+    <input type='time' name='startAt' />
+  </label>
+ 
+  <label>
+    music :
+    <input type='text' name='musicType' />
+  </label>
+
+  <label>
+    description :
+    <textarea name="description" cols="30" rows="4" placeholder="describe your party"></textarea>
+  </label>
+  
+  <input type="text" name="myText" value="Norway"
+       selectBoxOptions="Canada;Denmark;Finland;Germany;Mexico"> 
+       
+  <label>
+    categories :
+    <input type='text' name='categories' />
+  </label>
+
+  <button type='submit'>Post</button>
+</form>

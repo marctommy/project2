@@ -2,19 +2,19 @@ const { Schema, model } = require("mongoose");
 
 const partySchema = new Schema(
   {
-    partyname: {
-      type: String,
-      unique: true,
-      // unique: true -> Ideally, should be unique, but its up to you
-    },
-    password: String,
+    name: String,
+    location: String,
+    date: Date,
+    startAt: String,
+    finishAt: String,
+    musicType: String,
+    capacity: Number,
+    description: String,
+    categories: String,
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
   }
 );
 
-const Party = model("Party", partySchema);
-
-module.exports = Party;
+module.exports = model("party", partySchema);
