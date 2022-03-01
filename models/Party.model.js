@@ -1,11 +1,10 @@
 const { Schema, model } = require("mongoose");
 
-const userSchema = new Schema(
+const partySchema = new Schema(
   {
-    username: {
+    partyname: {
       type: String,
       unique: true,
-      required: [true, "Username is required"],
       // unique: true -> Ideally, should be unique, but its up to you
     },
     password: String,
@@ -16,6 +15,6 @@ const userSchema = new Schema(
   }
 );
 
-const User = model("User", userSchema);
+const Party = model("Party", partySchema);
 
-module.exports = User;
+module.exports = Party;
