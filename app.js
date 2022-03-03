@@ -20,16 +20,16 @@ require("./config")(app);
 
 // default value for title local
 const capitalized = require("./utils/capitalized");
-const projectName = "hausparty";
+const projectName = "Hausparty";
 
-app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
+app.locals.appTitle = `${capitalized(projectName)} `;
 
 // 👇 Start handling routes here
 const index = require("./routes/index.routes");
 app.use("/", index);
 
 const partyRoutes = require("./routes/party.routes");
-app.use("/parties", partyRoutes)
+app.use("/parties", partyRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

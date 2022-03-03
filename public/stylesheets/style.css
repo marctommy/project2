@@ -1,12 +1,25 @@
+* {
+  box-sizing: border-box;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(240, 240, 240);
 }
 
-a {
-  color: #00b7ff;
+.container {
+  display: flex;
+}
+.child {
+  font-size: 10px;
+  display: inline-block;
+  margin: 20px 10px 0 25px;
 }
 
-h1 {
-  color: 15px;
+.nav-link {
+  color: rgb(201, 45, 45);
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #d42d2d;
+  border-color: #ffd08a;
 }

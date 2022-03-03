@@ -1,5 +1,5 @@
-const router = require('express').Router();
-const Party = require('../models/Party.model');
+const router = require("express").Router();
+const Party = require("../models/Party.model");
 
 router.get('/', (req, res) => {
   Party.find()
