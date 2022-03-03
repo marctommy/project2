@@ -1,3 +1,5 @@
+//! This is just a copy past from an older project. Feel free to delete or ignore.
+
 const router = require("express").Router();
 const bcryptjs = require("bcryptjs"); // import bcrypt
 const { default: mongoose } = require("mongoose");
