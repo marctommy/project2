@@ -4,13 +4,12 @@ const partySchema = new Schema(
   {
     name: String,
     location: String,
-    date: Date,
-    startAt: String,
-    finishAt: String,
-    musicType: String,
     capacity: Number,
+    date: Date,
+    start: String,
+    music: String,
+    category: String,
     description: String,
-    categories: String,
   },
   {
     timestamps: true,
