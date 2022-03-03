@@ -5,41 +5,18 @@
 <div class="child">
 <h3>{{name}}</h3>
 
-    {{location}}
-    {{date}}
-    {{startAt}}
-    {{finishAt}}
-    {{musicType}}
-    {{capacity}}
-    {{description}}
-    {{categories}}
+{{#each allparties}}
 
-</div>
-{{/each}}
-    </div>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{name}}</h5>
+    <p class="card-text">{{music}}</p>
+    <p class="card-text">{{category}}</p>
+    <p class="card-text">{{description}}</p>
 
-    <div class="col child">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap" />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card
-            title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col child">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap" />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card
-            title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
+    <a href="parties/{{_id}}" class="btn btn-primary">see the details</a>
   </div>
 </div>
+
+{{/each}}
