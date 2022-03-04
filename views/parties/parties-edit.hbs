@@ -1,0 +1,64 @@
+<h2>Edit {{party.name}}</h2>
+
+  <form class="row g-3" action="/parties/{{party._id}}/edit" method='post'>
+
+  <div class="col-12">
+    <label for="inputName" class="form-label">Party name</label>
+    <input type="name" class="form-control" id="name" name="name" value="{{party.name}}">
+  </div>
+
+  <div class="col-12">
+    <label for="inputLocation" class="form-label">Location</label>
+    <input type="location" class="form-control" id="inputLocation" name="location" value="{{party.location}}" >
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputDate" class="form-label">Date</label>
+    <input type="date" class="form-control" id="inputDate" name="date" value="{{party.date}}">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputStart" class="form-label">Start at</label>
+    <input type="time" class="form-control" id="inputStart" name="start" value="{{party.start}}">
+  </div>
+
+  <div class="col-md-6">
+    <label for="music" class="form-label">Music</label>
+    <select id="music" class="form-select" name="music">
+      <option selected value="{{party.music}}">{{party.music}}</option>
+      <option value="Electro">Electro</option>
+      <option value="Techno">Techno</option>
+      <option value="Hiphop">Hiphop</option>
+      <option value="Rock">Rock</option>
+      <option value="Pop">Pop</option>
+      <option value="Jazz">Jazz</option>
+      <option value="Country Music">Country Music</option>
+
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <label for="category" class="form-label">Categories</label>
+    <select multiple id="category" class="form-select" name="category">
+      <option selected value="{{party.category}}">{{party.category}}</option>
+      <option value="non-smoking">non-smoking</option>
+      <option value="smoking">smoking</option>
+      <option value="none">...</option>
+    </select>
+  </div>
+
+  <div class='mb-3'>
+    <label for='exampleFormControlTextarea1'class='form-label'>Description</label>
+    <textarea name="description" class='form-control' id='description' rows='3'>{{party.description}}"</textarea>
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Save changes</button>
+  </div>
+
+</form>
+
+<form action="/parties/{{party._id}}/delete" method="post">
+  <button type="submit" class="btn btn-primary">Delete</button>
+</form>
+

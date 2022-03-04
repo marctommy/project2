@@ -26,18 +26,23 @@
     <label for="music" class="form-label">Music</label>
     <select id="music" class="form-select" name="music">
       <option selected>Choose...</option>
-      <option value="electronic">electronic</option>
+      <option value="Electro">Electro</option>
+      <option value="Techno">Techno</option>
       <option value="Hiphop">Hiphop</option>
-      <option value="rock">rock</option>
+      <option value="Rock">Rock</option>
+      <option value="Pop">Pop</option>
+      <option value="Jazz">Jazz</option>
+      <option value="Country Music">Country Music</option>
+
     </select>
   </div>
 
   <div class="col-md-6">
     <label for="category" class="form-label">Categories</label>
-    <select id="category" class="form-select" name="category">
+    <select multiple id="category" class="form-select" name="category">
       <option selected>Choose...</option>
-      <option value="non-smocking">non-smocking</option>
-      <option value="smocking">smocking</option>
+      <option value="non-smoking">non-smoking</option>
+      <option value="smoking">smoking</option>
       <option value="none">...</option>
     </select>
   </div>
@@ -45,6 +50,11 @@
   <div class='mb-3'>
     <label for='exampleFormControlTextarea1'class='form-label'>Description</label>
     <textarea name="description" class='form-control' id='description' rows='3'></textarea>
+  </div>
+
+  <div class="col-12">
+    <label for="imageUrl" class="form-label">Image Url</label>
+    <input type="imageUrl" class="form-control" id="imageUrl" name="imageUrl">
   </div>
 
   <div class="col-12">
