@@ -2,12 +2,13 @@ const router = require("express").Router();
 const Party = require("../models/Party.model");
 
 router.get('/', (req, res) => {
+
   Party.find()
     .then((allparties) => {
       res.render('parties/parties-list', { allparties });
     })
     .catch((err) => {
-      console.log(err);
+      console.log(err)
     });
 });
 
@@ -38,6 +39,35 @@ router.get('/:partyId', (req, res)=> {
     .catch(err => {console.log(err)})
 })    
 
+router.get('/:partyId/edit', (req,res, next) => {
+  const { partyId } = req.params;
+
+  Party.findById(partyId)
+    .then((party)=> {
+       res.render('parties/parties-edit', {party})
+    })
+    .catch(error => {console.log(error)})
+})
+
+router.post('/:partyId/edit', (req,res, next) => {
+  const { partyId } = req.params;
+  const { name , location, date, start, music, category, description } = req.body;
+
+  Party.findByIdAndUpdate(partyId, { name , location, date, start, music, category, description }, {new: true})
+    .then(()=> {
+      res.redirect(`/parties`)
+    })
+    .catch(error => {console.log(error)})
+})
+
+router.post('/:partyId/delete', (req, res)=> {
+  const { partyId } = req.params;
+  Party.findByIdAndDelete(partyId)
+  .then(() => {
+    res.redirect("/parties")
+  })  
+  .catch(err => {console.log(err)})
+})    
 
 
 module.exports = router;
