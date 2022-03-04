@@ -5,13 +5,8 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-router.get("/welcome", (req, res) => {
-  const { currentUser } = req.session;
-  if (!currentUser) {
-    res.redirect("/auth/login");
-  }
-
-  res.render("user/welcome", currentUser);
+router.get("/user-profile", (_, res) => {
+  res.render("auth/user-profile");
 });
 
 module.exports = router;
