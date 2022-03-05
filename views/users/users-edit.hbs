@@ -1,0 +1,77 @@
+<div class="container-fluid">
+
+<div class="col-md-3">
+
+  <h2>Edit Profile Information</h2>
+      
+    <form action="/users/edit/{{loggedInUser.id}}" method="POST">
+      <div class="mb-3">
+      
+
+        <label class="form-label"> Photo
+          <input type="image" name="photo"
+          placeholder="" class="form-control" />
+        </label>
+        
+
+        <label class="form-label"> Username
+          <input type="text" name="username"
+          value="{{loggedInUser.username}}" class="form-control" />
+        </label>
+        c
+    <label class="form-label"> Name
+          <input type="text" name="name"
+          value="{{loggedInUser.name}}" class="form-control" />
+        </label>
+
+        
+        <label class="form-label"> Age
+          <input type="number" name="age"
+          value="{{loggedInUser.age}}" class="form-control" />
+        </label>
+
+        <label class="form-label"> Location
+          <input type="text" name="location"
+          value="{{loggedInUser.location}}" class="form-control" />
+        </label>
+
+        
+        <label class="form-label"> Music
+         <select class="form-select" name="music">
+      <option selected>I like</option>
+      <option value="techno">Techno</option>
+      <option value="hiphop">Hiphop</option>
+      <option value="pop">Pop</option>
+       <option value="disco">Disco</option>
+    </select>
+        </label>
+
+        <label class="form-label"> Who are you at the Party? 
+          <select class="form-select" name="partyType">
+      <option selected>I am ..</option>
+      <option value="superstar">The Superstar</option>
+      <option value="The Overly Drunk Person">The Overly Drunk Person</option>
+      <option value="paparazzo">The Drunk Paparazzo</option>
+       <option value="shotpusher">The Aggressive Shot Pusher</option>
+       <option value="babysitter">The Babysitter</option>
+       <option value="smokewhendrunk">The Person Who Only Smokes When They’re Drunk</option>
+       <option value="tabledancer">The Table Dancer</option>
+       <option value="playlisthijacker">The Playlist Hijacker</option>
+       <option value="freestyler">The Freestyler</option>
+       
+    </select>
+
+        <label class="form-label">Description 
+          <textarea name="description" class='form-control' rows='5' placeholder="A short description about yourself. Don't write a book."></textarea>
+        </label>
+           
+         {{!-- <a
+        href="/users/{{loggedInUser.id}}"
+        class="btn btn-primary" type="submit" 
+      >Update Information</a> --}}
+
+      <button type="submit" class="btn btn-primary">Update Information</button>
+    </form>
+  </div>
+</div>
+</div>
