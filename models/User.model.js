@@ -1,3 +1,4 @@
+const { urlencoded } = require("express");
 const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
@@ -7,7 +8,6 @@ const userSchema = new Schema(
       trim: true,
       required: true,
       unique: true,
-      // unique: true -> Ideally, should be unique, but its up to you
     },
     password: {
       type: String,
@@ -19,6 +19,13 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
+
+    name: String,
+    age: Number,
+    location: String,
+    music: String,
+    partyType: String,
+    description: String,
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
