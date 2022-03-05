@@ -21,7 +21,7 @@ router.post("/signup", async (req, res) => {
       email,
       password: hashedPassword,
     });
-    res.redirect("/user-profile");
+    res.redirect(`/users-profile/${user._id}`);
   } catch (error) {
     console.log(error);
   }
