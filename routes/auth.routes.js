@@ -19,7 +19,13 @@ router.post('/signup', (req, res, next) => {
     res.render('auth/signup', {
       errorMessage: 'please fill in all fields',
     });
+<<<<<<< HEAD
     return;
+=======
+    res.redirect(`/users/${user._id}`);
+  } catch (error) {
+    console.log(error);
+>>>>>>> 9f312057b29e875ad89d11b654cb46aea44bc4e2
   }
 
   // 2. Check pass length

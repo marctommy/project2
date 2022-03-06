@@ -1,5 +1,5 @@
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
 
@@ -24,4 +24,15 @@ body {
   color: #fff;
   background-color: #ff77a9;
   border-color: #ffd08a;
+}
+
+.container-fluid {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container {
+  display: inline-block;
 }

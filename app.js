@@ -84,10 +84,12 @@ app.use(
 const index = require("./routes/index.routes");
 const partyRoutes = require("./routes/party.routes");
 const authRoutes = require("./routes/auth.routes");
+const usersRoutes = require("./routes/user.routes");
 
 app.use("/", index);
 app.use("/parties", partyRoutes);
 app.use("/", authRoutes);
+app.use('/users', usersRoutes)
 
 
 // To handle errors. Routes that don't exist or errors that you handle in specific routes
