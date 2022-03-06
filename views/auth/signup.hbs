@@ -1,28 +1,43 @@
-<h2>This is our sign up page</h2>
-<div id="form">
-  <h2>Signup</h2>
-  <form action="/auth/signup" method="POST">
+<h2>Signup</h2>
 
-    <label>
-      Username
-      <input
-        type="text"
-        name="username"
-        placeholder="Who are you at the party?"
-      />
-    </label>
+<form action="/signup" method="POST" id="form-container">
+ <div>
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name">
+ </div>
+ 
+ <div>
+  <label for="username">Username</label>
+  <input id="username" type="text" name="username">
+ </div>
+ 
+ <div>
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password">
+ </div>
 
-    <label>
-      Email
-      <input type="email" name="email" placeholder="Your Email" />
-    </label>
+ <div>
+  <label for="email">Email</label>
+  <input id="email" type="email" name="email">
+ </div>
 
-    <label>
-      Password
-      <input type="password" name="password" placeholder="********" />
-    </label>
+ <div>
+  <label for="url">Url</label>
+  <input id="url" type="text" name="url">
+ </div>
 
-    <button type="submit">Create account</button>
 
-  </form>
-</div>
+ {{#if errorMessage}}
+  <div class="error-message">{{errorMessage}}</div>
+ {{/if}}
+
+ <div>
+  <button>Create account</button>
+ </div>
+
+ <p class="account-message">
+  Do you already have an account?
+  <a href="/login">Login</a>
+ </p>
+
+</form>

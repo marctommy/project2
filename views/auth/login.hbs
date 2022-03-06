@@ -1,3 +1,19 @@
-<h2>This is our log in page</h2>
+<form action='/login' method='POST'>
+  <div>
+    <label for='username'>Username:</label>
+    <input type='text' name='username' placeholder="Enter your username" required/>
+  </div>
 
-f
+  <div>
+    <label for='password'>Password:</label>
+    <input type='password' name='password' placeholder="Enter your passport" required/>
+  </div>
+
+  {{#if errorMessage}}
+    <div class='error-message'>{{errorMessage}}</div>
+  {{/if}}
+
+  <div>
+    <button>Log in</button>
+  </div>
+</form>
