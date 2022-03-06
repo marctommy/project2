@@ -1,3 +1,24 @@
+<<<<<<< HEAD
+<form action='/login' method='POST'>
+  <div>
+    <label for='username'>Username:</label>
+    <input type='text' name='username' placeholder="Enter your username" required/>
+  </div>
+
+  <div>
+    <label for='password'>Password:</label>
+    <input type='password' name='password' placeholder="Enter your passport" required/>
+  </div>
+
+  {{#if errorMessage}}
+    <div class='error-message'>{{errorMessage}}</div>
+  {{/if}}
+
+  <div>
+    <button>Log in</button>
+  </div>
+</form>
+=======
 <div class="container-fluid">
 
 
@@ -21,3 +42,4 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
+>>>>>>> 9f312057b29e875ad89d11b654cb46aea44bc4e2

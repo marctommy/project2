@@ -3,29 +3,34 @@ const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
   {
+    name : {
+      type: String,
+      required: [true, 'name is required.']
+    },
+    
     username: {
       type: String,
       trim: true,
-      required: true,
-      unique: true,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      trim: true,
-      required: true,
+      required: [true, 'Username is required.'],
       unique: true,
     },
 
-    name: String,
-    age: Number,
-    location: String,
-    music: String,
-    partyType: String,
-    description: String,
+    password: {
+      type: String,
+      required: [true, 'Password is required.'],
+    },
+
+    email: {
+      type: String,
+      required: [true, 'Email is required.'],
+      unique: true,
+      lowercase: true,
+      trim: true
+    },
+
+    url : { 
+       type: String
+     }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
