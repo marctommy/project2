@@ -17,8 +17,7 @@ function isLoggedOut(req, res, next) {
   res.redirect('/');
 }
 
-router.get('/', isLoggedIn, (req, res, next) => {
-
+router.get('/', (req, res, next) => {
   Party.find()
     .then((allparties) => {
       res.render('parties/parties-list', { allparties });

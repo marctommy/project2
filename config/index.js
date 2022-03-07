@@ -17,6 +17,7 @@ const favicon = require('serve-favicon');
 // https://www.npmjs.com/package/path
 const path = require('path');
 
+const hbs = require('hbs');
 
 // Middleware configuration
 module.exports = (app) => {
@@ -32,6 +33,7 @@ module.exports = (app) => {
   app.set('views', path.join(__dirname, '..', 'views'));
   // Sets the view engine to handlebars
   app.set('view engine', 'hbs');
+  hbs.registerPartials(__dirname + "/views/partials");
   // Handles access to the public folder
   app.use(express.static(path.join(__dirname, '..', 'public')));
 
