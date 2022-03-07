@@ -1,23 +1,56 @@
  <h2>Find your best party!</h2>
 
+ <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 50%;
+        width: 50%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+  
+  
+    <div class="card-body" id="map">
+
+    <script>
+      function initMap() {
+        let options = {
+          zoom: 13,
+          center: { lat: 52.52, lng: 13.405 },
+        };
+
+        let map = new google.maps.Map(document.getElementById("map"), options);
+      }
+    </script>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxJHXRZO_vG18Q4WIRHjtQkjqz-J4Kak8&callback=initMap"
+      async
+      defer
+    ></script>
+
+    </div>
+
+
+
 {{#each allparties}}
 
 <div class="party-list card" style="width: 18rem;">
-  <img class="card-img-top" src="/images/party2.jpg" alt="Card image cap">
+  <img class="card-img-top" src="/images/party1.jpg" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{name}}</h5>
     <p class="card-text">{{date}}</p>
     <p class="card-text">{{music}}</p>
     <p class="card-text">{{category}}</p>
     <p class="card-text">{{description}}</p>
-
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap" />
-        <div class="card-body">
-          <h5 class="card-title">{{name}}</h5>
-          <p class="card-text">{{music}}</p>
-          <p class="card-text">{{category}}</p>
-          <p class="card-text">{{description}}</p>
 
           <a href="parties/{{_id}}" class="btn btn-primary">see the details</a>
         </div>
