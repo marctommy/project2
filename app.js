@@ -47,8 +47,16 @@ app.use(
   app.use(passport.session());
   app.use(flash())
 
+// Global var
+  app.use((req,res, next) => {
+    res.locals.success_msg = req.flash('success_msg')
+    res.locals.error_msg = req.flash('error_msg')
+    res.locals.error = req.flash('error')
+    next();
+  })
+
   passport.serializeUser(function (user, done) {
-    done(null, user._id);
+    done(null, user.id);
   });
 
   passport.deserializeUser(function (id, done) {

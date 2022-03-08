@@ -1,23 +1,9 @@
 const router = require("express").Router();
 const Party = require("../models/Party.model");
 const passport = require('passport');
+const { isLoggedIn } = require('../config/auth')
 
-
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/login');
-}
-
-function isLoggedOut(req, res, next) {
-  if (!req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/');
-}
-
-router.get('/', (req, res, next) => {
+router.get('/', isLoggedIn, (req, res, next) => {
   Party.find()
     .then((allparties) => {
       res.render('parties/parties-list', { allparties });
