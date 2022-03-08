@@ -1,8 +1,7 @@
 <session class="auth-container">
     <form action="/signup" method="post">
         <div>
-    
-            <h1>Signup</h1>
+             <h1>Signup</h1>
         </div>
     
       {{>message}}
@@ -49,50 +48,7 @@
     
         <p class="account-message">
         Do you already have an account?
-      <a href="/login">Login</a>
-     </p>
+        <a href="/login">Login</a>
+        </p>
     </form>
 </session>
-
-
-{{!-- <form action="/signup" method="POST" id="form-container">
- <div>
-  <label for="name">Name</label>
-  <input id="name" type="text" name="name">
- </div>
- 
- <div>
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username">
- </div>
- 
- <div>
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password">
- </div>
-
- <div>
-  <label for="email">Email</label>
-  <input id="email" type="email" name="email">
- </div>
-
- <div>
-  <label for="url">Url</label>
-  <input id="url" type="text" name="url">
- </div>
-
-
- {{#if errorMessage}}
-  <div class="error-message">{{errorMessage}}</div>
- {{/if}}
-
- <div>
-  <button>Create account</button>
- </div>
-
- <p class="account-message">
-  Do you already have an account?
-  <a href="/login">Login</a>
- </p>
-
-</form> --}}

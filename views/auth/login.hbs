@@ -4,9 +4,7 @@
   
   <form action="/login" method="post">
     <div>
-      {{#if errorMessage}}
-      <div class='error-message'>{{errorMessage}}</div>
-    {{/if}}
+    {{>message}}
       <h1>Login</h1>
     </div>
     <div class="form-group">
@@ -30,6 +28,10 @@
     <div>
       <input type="submit" value="Login" />
     </div>
+    <p class="account-message">
+        Need an account?
+        <a href="/signup">Sign up</a>
+    </p>
   </form>
 
 </session>
