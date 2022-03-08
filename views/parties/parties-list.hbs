@@ -1,18 +1,14 @@
- <h2>Find your best party!</h2>
-
-
-    <div id="map">
+<div id="map">
 </div>
     
 
-<p>Hello World</p>
 {{#each allparties}}
-<p>Inside Loop</p>
+
 <div class="party-list card" style="width: 18rem;">
   <img class="card-img-top" src="/images/party1.jpg" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{name}}</h5>
-    <p class="card-text">{{date}}</p>
+    <p class="card-text">{{formatDate date}}</p>
     <p class="card-text">{{music}}</p>
     <p class="card-text">{{category}}</p>
     <p class="card-text">{{description}}</p>
@@ -57,32 +53,28 @@
         };
            let map = new google.maps.Map(document.getElementById("map"), options);      
      
+   
       const geocoder = new google.maps.Geocoder();
-
-parties.forEach((party) => {
+      
+    parties.forEach((party) => {
      geocoder.geocode({ address: party.location }, (results, status) => {
       if (status === "OK") {
 
 
-        // Display response in the console
-        console.log(results);
+          // Set the location of the map obtained by the API
+          map.setCenter(results[0].geometry.location);
 
-        // Set the location of the map obtained by the API
-        map.setCenter(results[0].geometry.location);
-
-        // Add the marker with the obtained location
-        new google.maps.Marker({
-      map,
-          position: results[0].geometry.location,
-        });
-      } 
-   });
-    })
+          // Add the marker with the obtained location
+          new google.maps.Marker({
+          map,
+            position: results[0].geometry.location
+          });
+       } 
+     });
+  })
 }
     </script>
-
-
-
+    
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxJHXRZO_vG18Q4WIRHjtQkjqz-J4Kak8&callback=initMap"
       async

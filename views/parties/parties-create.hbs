@@ -1,25 +1,31 @@
 <h2>Post Your Party</h2>
 
-  <form class="row g-3" action='/parties/create' method='post'>
+<form class="row g-3" action="/parties/create" method="post">
 
   <div class="col-12">
     <label for="inputName" class="form-label">Party name</label>
-    <input type="name" class="form-control" id="name" name="name">
+    <input type="name" class="form-control" id="name" name="name" />
   </div>
 
   <div class="col-12">
     <label for="inputLocation" class="form-label">Location</label>
-    <input type="location" class="form-control" id="inputLocation" name="location">
+    <input
+      placeholder="'Storkower Str. 132, 10407 Berlin'"
+      type="location"
+      class="form-control"
+      id="inputLocation"
+      name="location"
+    />
   </div>
 
   <div class="col-md-6">
     <label for="inputDate" class="form-label">Date</label>
-    <input type="date" class="form-control" id="inputDate" name="date">
+    <input type="date" class="form-control" id="inputDate" name="date" />
   </div>
 
   <div class="col-md-6">
     <label for="inputStart" class="form-label">Start at</label>
-    <input type="time" class="form-control" id="inputStart" name="start">
+    <input type="time" class="form-control" id="inputStart" name="start" />
   </div>
 
   <div class="col-md-6">
@@ -46,14 +52,22 @@
     </select>
   </div>
 
-  <div class='mb-3'>
-    <label for='exampleFormControlTextarea1'class='form-label'>Description</label>
-    <textarea name="description" class='form-control' id='description' rows='3'></textarea>
+  <div class="mb-3">
+    <label
+      for="exampleFormControlTextarea1"
+      class="form-label"
+    >Description</label>
+    <textarea
+      name="description"
+      class="form-control"
+      id="description"
+      rows="3"
+    ></textarea>
   </div>
 
   <div class="col-12">
     <label for="imageUrl" class="form-label">Image Url</label>
-    <input type="imageUrl" class="form-control" id="imageUrl" name="imageUrl">
+    <input type="imageUrl" class="form-control" id="imageUrl" name="imageUrl" />
   </div>
 
   <div class="col-12">

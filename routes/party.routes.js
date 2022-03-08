@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Party = require("../models/Party.model");
 const passport = require("passport");
+const User = require("../models/User.model");
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
@@ -51,7 +52,9 @@ router.post("/create", (req, res) => {
 router.get("/:partyId", (req, res) => {
   const { partyId } = req.params;
   Party.findById(partyId)
+    .populate("username")
     .then((party) => {
+      console.log(party);
       res.render("parties/parties-details", { party });
     })
     .catch((err) => {
