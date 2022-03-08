@@ -65,10 +65,16 @@
           map.setCenter(results[0].geometry.location);
 
           // Add the marker with the obtained location
-          new google.maps.Marker({
+          const marker = new google.maps.Marker({
           map,
-            position: results[0].geometry.location
+            position: results[0].geometry.location,
+        
           });
+          const infoWindow = new google.maps.InfoWindow({ content: party.name
+        }); marker.addListener("click", function () { infoWindow.open(map,
+        marker); })
+          
+          
        } 
      });
   })
