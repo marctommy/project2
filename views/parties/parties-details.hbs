@@ -25,11 +25,6 @@
 
     </div>
 
-    <label>
-
-      <input type="text" name="" id="" />
-    </label>
-
     <style>
       #map { height: 300px; width: 600px }
 
@@ -37,17 +32,26 @@
 
     <div class="card-body" id="map">
 
+      <script>
+
+        function initMap() { const options = { zoom: 12, center: { lat: 52.52,
+        lng: 13.405 } }; const map = new
+        google.maps.Map(document.getElementById("map"), options); const marker =
+        new google.maps.Marker({ position: { lat: 52.51317, lng: 13.44951 },
+        map: map, }); const infoWindow = new google.maps.InfoWindow({ content: "{{party.name}}"
+        }); marker.addListener("click", function () { infoWindow.open(map,
+        marker); }); }
+
+      </script>
+      <script
+        async
+        defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxJHXRZO_vG18Q4WIRHjtQkjqz-J4Kak8&&callback=initMap"
+      ></script>
+
     </div>
 
   </div>
 </div>
 
-<script
-  async
-  defer
-  src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
-></script>
-
 {{! map options for Berlin lat and long  }}
-<script defer src="../../extra.map.js">
-</script>
