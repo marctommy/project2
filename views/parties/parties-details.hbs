@@ -37,19 +37,17 @@
 
     <div class="card-body" id="map">
 
-      <script>
-        function initMap() { let options = { zoom: 13, center: { lat: 52.52,
-        lng: 13.405 }, }; let map = new
-        google.maps.Map(document.getElementById("map"), options); }
-      </script>
-
-      <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxJHXRZO_vG18Q4WIRHjtQkjqz-J4Kak8&callback=initMap"
-        async
-        defer
-      ></script>
-
     </div>
 
   </div>
 </div>
+
+<script
+  async
+  defer
+  src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+></script>
+
+{{! map options for Berlin lat and long  }}
+<script defer src="../../extra.map.js">
+</script>
