@@ -61,10 +61,10 @@
       if (status === "OK") {
 
 
-          // Set the location of the map obtained by the API
+          // set the location of the map obtained by the API
           map.setCenter(results[0].geometry.location);
 
-          // Add the marker with the obtained location
+          // add the marker with the obtained location
           const marker = new google.maps.Marker({
           map,
             position: results[0].geometry.location,

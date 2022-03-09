@@ -55,7 +55,10 @@ router.get("/:partyId", (req, res) => {
     .populate("username")
     .then((party) => {
       console.log(party);
-      res.render("parties/parties-details", { party });
+      res.render("parties/parties-details", {
+        stringyfiedparty: JSON.stringify(party),
+        party,
+      });
     })
     .catch((err) => {
       console.log(err);
