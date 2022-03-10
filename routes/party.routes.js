@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const Party = require("../models/Party.model");
 const passport = require('passport');
-const { isLoggedIn } = require('../config/auth')
+const { ensureAuth, ensureGuest } = require('../config/auth')
 
-router.get('/', isLoggedIn, (req, res, next) => {
+router.get('/', (req, res, next) => {
   Party.find()
     .then((allparties) => {
       res.render('parties/parties-list', { allparties });
@@ -13,7 +13,7 @@ router.get('/', isLoggedIn, (req, res, next) => {
     });
 });
 
-router.get('/create', (req, res) => {
+router.get('/create', ensureAuth, (req, res) => {
   res.render('parties/parties-create');
 });
 
@@ -31,7 +31,7 @@ router.post('/create', (req, res) => {
     });
 });
 
-router.get('/:partyId', (req, res)=> {
+router.get('/:partyId', ensureAuth, (req, res)=> {
   const { partyId } = req.params;
   Party.findById(partyId)
     .then((party) => {

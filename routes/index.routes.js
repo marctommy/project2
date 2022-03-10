@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const passport = require('passport');
+const { ensureAuth, ensureGuest } = require('../config/auth')
+
 
 /* GET home page */
-
 router.get("/", (req, res, next) => {
   res.render("index");
 });
