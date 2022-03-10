@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const partySchema = new Schema(
   {
     name: String,
-    username : String,
+    username: String,
     location: String,
     capacity: Number,
     date: Date,
@@ -11,7 +11,8 @@ const partySchema = new Schema(
     music: String,
     category: [],
     description: String,
-    url : String
+    url: String,
+    username: [{ type: Schema.Types.ObjectId, ref: "User" }],
   },
   {
     timestamps: true,
