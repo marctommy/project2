@@ -61,8 +61,6 @@ app.use(
 // end of session configuration
 
 
-
-
 // passport configutation
 const User = require('./models/User.model');
 const passport = require('passport');
