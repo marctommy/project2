@@ -1,42 +1,45 @@
 const router = require("express").Router();
 const Party = require("../models/Party.model");
 const User = require("../models/User.model");
-const passport = require('passport');
-const { ensureAuth, ensureGuest } = require('../config/auth')
+const passport = require("passport");
+const { ensureAuth, ensureGuest } = require("../config/auth");
 
 router.get("/", (req, res, next) => {
   Party.find()
     .then((allparties) => {
-      res.render('parties/parties-list', { stringyfiedparties: JSON.stringify(allparties),
-        allparties,});
-    })
-    .catch((err) => {
-      console.log(err)
-    });
-});
-
-router.get('/create', ensureAuth, (req, res) => {
-  res.render('parties/parties-create');
-});
-
-router.post('/create', (req, res) => {
-  const { name , location, date, start, music, category, description } = req.body;
-
-  console.log(req.body)
-
-  Party.create({ name , location, date, start, music, category, description })
-    .then(() => {
-      res.redirect('/parties');
+      res.render("parties/parties-list", {
+        stringyfiedparties: JSON.stringify(allparties),
+        allparties,
+      });
     })
     .catch((err) => {
       console.log(err);
     });
 });
 
-router.get('/:partyId', ensureAuth, (req, res)=> {
+router.get("/create", ensureAuth, (req, res) => {
+  res.render("parties/parties-create");
+});
+
+router.post("/create", (req, res) => {
+  const { name, location, date, start, music, category, description } =
+    req.body;
+
+  console.log(req.body);
+
+  Party.create({ name, location, date, start, music, category, description })
+    .then(() => {
+      res.redirect("/parties");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+router.get("/:partyId", ensureAuth, (req, res) => {
   const { partyId } = req.params;
   Party.findById(partyId)
-    .populate("username")
+    .populate("user")
     .then((party) => {
       console.log(party);
       res.render("parties/parties-details", {
