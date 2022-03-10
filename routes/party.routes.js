@@ -1,55 +1,39 @@
 const router = require("express").Router();
 const Party = require("../models/Party.model");
-const passport = require("passport");
 const User = require("../models/User.model");
-
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect("/login");
-}
-
-function isLoggedOut(req, res, next) {
-  if (!req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect("/");
-}
+const passport = require('passport');
+const { ensureAuth, ensureGuest } = require('../config/auth')
 
 router.get("/", (req, res, next) => {
   Party.find()
     .then((allparties) => {
-      res.render("parties/parties-list", {
-        stringyfiedparties: JSON.stringify(allparties),
-        allparties,
-      });
+      res.render('parties/parties-list', { stringyfiedparties: JSON.stringify(allparties),
+        allparties,});
     })
     .catch((err) => {
-      console.log(err);
+      console.log(err)
     });
 });
 
-router.get("/create", (req, res) => {
-  res.render("parties/parties-create");
+router.get('/create', ensureAuth, (req, res) => {
+  res.render('parties/parties-create');
 });
 
-router.post("/create", (req, res) => {
-  const { name, location, date, start, music, category, description } =
-    req.body;
+router.post('/create', (req, res) => {
+  const { name , location, date, start, music, category, description } = req.body;
 
-  console.log(req.body);
+  console.log(req.body)
 
-  Party.create({ name, location, date, start, music, category, description })
+  Party.create({ name , location, date, start, music, category, description })
     .then(() => {
-      res.redirect("/parties");
+      res.redirect('/parties');
     })
     .catch((err) => {
       console.log(err);
     });
 });
 
-router.get("/:partyId", (req, res) => {
+router.get('/:partyId', ensureAuth, (req, res)=> {
   const { partyId } = req.params;
   Party.findById(partyId)
     .populate("username")

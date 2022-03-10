@@ -1,4 +1,3 @@
-const { urlencoded } = require("express");
 const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
