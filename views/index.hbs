@@ -16,15 +16,21 @@
         <li class='nav-item'>
           <a class='nav-link' aria-current='page' href='/parties'>Parties</a>
         </li>
+        {{#if isAuthenticated}}
         <li class='nav-item'>
           <a class='nav-link' href='/logout' role='button'>Logout</a>
         </li>
         <li class='nav-item'>
-          <a class='nav-link' href='/user-profile' role='button'>Myprofile</a>
+          <a class='nav-link' href='/users/' role='button'>profile</a>
         </li>
+        {{else}}
         <li class='nav-item'>
           <a class='nav-link' href='/login' role='button'>Login</a>
         </li>
+        <li class='nav-item'>
+          <a class='nav-link' href='/signup' role='button'>signup</a>
+        </li>
+        {{/if}}
       </ul>
     </div>
   </div>

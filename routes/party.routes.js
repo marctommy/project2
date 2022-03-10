@@ -1,11 +1,13 @@
 const router = require("express").Router();
 const Party = require("../models/Party.model");
 const User = require("../models/User.model");
-const passport = require("passport");
 const { ensureAuth, ensureGuest } = require("../config/auth");
 
 router.get("/", (req, res, next) => {
   Party.find()
+    .populate("user")
+    .sort({ createAt: "desc" })
+    .lean()
     .then((allparties) => {
       res.render("parties/parties-list", {
         stringyfiedparties: JSON.stringify(allparties),
@@ -22,12 +24,19 @@ router.get("/create", ensureAuth, (req, res) => {
 });
 
 router.post("/create", (req, res) => {
-  const { name, location, date, start, music, category, description } =
+  req.body.user = req.user.id;
+  const { name, location, date, start, music, category, description, user } =
     req.body;
-
-  console.log(req.body);
-
-  Party.create({ name, location, date, start, music, category, description })
+  Party.create({
+    name,
+    location,
+    date,
+    start,
+    music,
+    category,
+    description,
+    user,
+  })
     .then(() => {
       res.redirect("/parties");
     })
@@ -52,7 +61,7 @@ router.get("/:partyId", ensureAuth, (req, res) => {
     });
 });
 
-router.get("/:partyId/edit", (req, res, next) => {
+router.get("/:partyId/edit", ensureAuth, (req, res, next) => {
   const { partyId } = req.params;
 
   Party.findById(partyId)
@@ -75,7 +84,7 @@ router.post("/:partyId/edit", (req, res, next) => {
     { new: true }
   )
     .then(() => {
-      res.redirect(`/parties`);
+      res.redirect("/parties");
     })
     .catch((error) => {
       console.log(error);
