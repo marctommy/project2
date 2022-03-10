@@ -1,7 +1,6 @@
  <h2>Find your best party!</h2>
 
 {{#each allparties}}
-
 <div class="party-list card" style="width: 18rem;">
   <img class="card-img-top" src="/images/party2.jpg" alt="Card image cap">
   <div class="card-body">
@@ -10,19 +9,8 @@
     <p class="card-text">{{music}}</p>
     <p class="card-text">{{category}}</p>
     <p class="card-text">{{description}}</p>
-
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap" />
-        <div class="card-body">
-          <h5 class="card-title">{{name}}</h5>
-          <p class="card-text">{{music}}</p>
-          <p class="card-text">{{category}}</p>
-          <p class="card-text">{{description}}</p>
-
-          <a href="parties/{{_id}}" class="btn btn-primary">see the details</a>
-        </div>
-      </div>
-
-    </div>
-  {{/each}}
+    <p class="card-text">@{{user.username}}</p>
+  <a href="parties/{{_id}}" class="btn btn-primary">see the details</a>
+  </div>
 </div>
+{{/each}}
