@@ -113,6 +113,12 @@ app.use(function(req, res, next) {
   next();
 });
 
+//authentication for the hbs
+app.use((req,res,next)=>{
+  if(req.isAuthenticated) res.locals.isAuthenticated = req.isAuthenticated();
+  next();
+});
+
 const index = require("./routes/index.routes");
 const partyRoutes = require("./routes/party.routes");
 const authRoutes = require("./routes/auth.routes");
