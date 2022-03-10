@@ -6,6 +6,7 @@ router.get("/:id", (req, res) => {
   console.log(id);
   User.findById(id)
     .then((loggedInUser) => {
+      console.log(loggedInUser);
       res.render("users/users-profile", { loggedInUser });
     })
     .catch((error) => {

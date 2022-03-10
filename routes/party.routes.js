@@ -1,16 +1,21 @@
+
 const router = require('express').Router();
 const Party = require('../models/Party.model');
 const User = require('../models/User.model')
 const { ensureAuth, ensureGuest } = require('../config/auth');
 
-router.get('/', (req, res, next) => {
+
+router.get("/", (req, res, next) => {
   Party.find()
     .populate('user')
     .sort({ createAt: 'desc' })
     .lean()
     .then((allparties) => {
-      console.log(allparties)
-      res.render('parties/parties-list', { allparties });
+
+
+      res.render('parties/parties-list', { stringyfiedparties: JSON.stringify(allparties),
+        allparties,});
+
     })
     .catch((err) => {
       console.log(err);
@@ -36,25 +41,37 @@ router.post('/create', (req, res) => {
 router.get('/:partyId', ensureAuth, (req, res) => {
   const { partyId } = req.params;
   Party.findById(partyId)
+    .populate("username")
     .then((party) => {
-      res.render('parties/parties-details', { party });
+
+
+      console.log(party);
+      res.render("parties/parties-details", {
+        stringyfiedparty: JSON.stringify(party),
+        party,
+      });
     })
     .catch((err) => {
       console.log(err);
     });
 });
 
+
 router.get('/:partyId/edit', ensureAuth, (req, res, next) => {
+
   const { partyId } = req.params;
 
   Party.findById(partyId)
     .then((party) => {
+
       res.render('parties/parties-edit', { party });
+
     })
     .catch((error) => {
       console.log(error);
     });
 });
+
 
 router.post('/:partyId/edit', (req, res, next) => {
   const { partyId } = req.params;
@@ -63,17 +80,21 @@ router.post('/:partyId/edit', (req, res, next) => {
   Party.findByIdAndUpdate(partyId, { name, location, date, start, music, category, description }, { new: true })
     .then(() => {
       res.redirect('/parties');
+
     })
     .catch((error) => {
       console.log(error);
     });
 });
 
+
 router.post('/:partyId/delete', (req, res) => {
   const { partyId } = req.params;
   Party.findByIdAndDelete(partyId)
     .then(() => {
       res.redirect('/parties');
+
+
     })
     .catch((err) => {
       console.log(err);

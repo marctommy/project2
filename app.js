@@ -9,6 +9,7 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 const flash        = require('connect-flash');
+const moment = require("moment");
 
 
 mongoose
@@ -59,8 +60,6 @@ app.use(
   })
 );
 // end of session configuration
-
-
 
 
 // passport configutation
@@ -129,8 +128,13 @@ const usersRoutes = require("./routes/user.routes");
 app.use("/", index);
 app.use("/parties", partyRoutes);
 app.use("/", authRoutes);
-app.use('/users', usersRoutes)
+app.use("/users", usersRoutes);
 
 
+hbs.registerHelper("formatDate", function (dateString) {
+  return new hbs.SafeString(
+    moment(dateString).format("dddd MMM DD").toUpperCase()
+  );
+});
 
 module.exports = app;
