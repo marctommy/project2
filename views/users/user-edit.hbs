@@ -4,14 +4,10 @@
 
   <h2>Edit Profile Information</h2>
       
-    <form action="/user/edit/{{loggedInUser.id}}" method="POST">
+    <form action="/users/{{loggedInUser._id}}/edit" method="POST">
       <div class="mb-3">
       
 
-        <label class="form-label"> Photo
-          <input type="image" name="photo"
-          placeholder="" class="form-control" />
-        </label>
         
 
         <label class="form-label"> Username
