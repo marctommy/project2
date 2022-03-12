@@ -8,7 +8,7 @@ const { ensureAuth, ensureGuest } = require("../config/auth");
 
 router.get("/:id", (req, res) => {
   const { id } = req.params;
-  console.log(id);
+ 
   User.findById(id)
     .then((loggedInUser) => {
       res.render("users/user-profile", { loggedInUser });
@@ -18,7 +18,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.get("/:id/edit",  (req, res) => {
+router.get("/edit/:id",  (req, res) => {
   const { id } = req.params;
   User.findById(id)
     .then((loggedInUser) => {
@@ -29,7 +29,7 @@ router.get("/:id/edit",  (req, res) => {
     });
 });
 
-router.post("/:id/edit", (req, res) => {
+router.post("/edit/:id", (req, res) => {
   const { id } = req.params;
 
   const { name, age, location, music, partyType, description } = req.body;
@@ -45,7 +45,7 @@ router.post("/:id/edit", (req, res) => {
     description,
   })
     .then((updatedUser) => {
-      res.redirect(`/user/${updatedUser._id}`);
+      res.redirect(`/users/${updatedUser._id}`);
     })
     .catch((error) => {
       console.log(error);
