@@ -1,13 +1,16 @@
-const router = require('express').Router();
-const { ensureAuth, ensureGuest } = require('../config/auth');
+const router = require("express").Router();
+const { ensureAuth, ensureGuest } = require("../config/auth");
 
 /* GET home page */
-router.get('/', (req, res, next) => {
-  res.render('index');
+router.get("/", (req, res, next) => {
+  if (req.user) {
+    const {id} = req.user
+    res.render("index", {id}); }
+   else {
+     res.render("auth/login", { errorMessage: "please log in" });
+     return;
+    }
 });
 
-router.get('/user-profile', (_, res) => {
-  res.render('users/user-profile');
-});
 
 module.exports = router;
