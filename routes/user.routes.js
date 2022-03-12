@@ -1,32 +1,35 @@
 const router = require("express").Router();
 const User = require("../models/User.model");
+const { ensureAuth, ensureGuest } = require("../config/auth");
+
+// router.get("/:userId", (_, res) => {
+//   res.render("users/user-profile");
+// });
 
 router.get("/:id", (req, res) => {
   const { id } = req.params;
   console.log(id);
   User.findById(id)
     .then((loggedInUser) => {
-      console.log(loggedInUser);
-      res.render("users/users-profile", { loggedInUser });
+      res.render("users/user-profile", { loggedInUser });
     })
     .catch((error) => {
       console.log(error);
     });
 });
 
-router.get("/edit/:id", (req, res) => {
+router.get("/:id/edit",  (req, res) => {
   const { id } = req.params;
   User.findById(id)
     .then((loggedInUser) => {
-      console.log(id);
-      res.render("users/users-edit", { loggedInUser });
+      res.render("users/user-edit", { loggedInUser });
     })
     .catch((error) => {
       console.log(error);
     });
 });
 
-router.post("/edit/:id", (req, res) => {
+router.post("/:id/edit", (req, res) => {
   const { id } = req.params;
 
   const { name, age, location, music, partyType, description } = req.body;
@@ -42,7 +45,7 @@ router.post("/edit/:id", (req, res) => {
     description,
   })
     .then((updatedUser) => {
-      res.redirect(`/users/${updatedUser._id}`);
+      res.redirect(`/user/${updatedUser._id}`);
     })
     .catch((error) => {
       console.log(error);

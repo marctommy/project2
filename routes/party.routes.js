@@ -2,6 +2,7 @@ const router = require("express").Router();
 const Party = require("../models/Party.model");
 const User = require("../models/User.model");
 const { ensureAuth, ensureGuest } = require("../config/auth");
+require('dotenv').config()
 
 router.get("/", (req, res, next) => {
   Party.find()
@@ -12,6 +13,7 @@ router.get("/", (req, res, next) => {
       res.render("parties/parties-list", {
         stringyfiedparties: JSON.stringify(allparties),
         allparties,
+        apiKey: process.env.API_KEY
       });
     })
     .catch((err) => {
@@ -54,6 +56,7 @@ router.get("/:partyId", ensureAuth, (req, res) => {
       res.render("parties/parties-details", {
         stringyfiedparty: JSON.stringify(party),
         party,
+        apiKey: process.env.API_KEY
       });
     })
     .catch((err) => {

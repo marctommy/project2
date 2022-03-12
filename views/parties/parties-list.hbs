@@ -1,89 +1,60 @@
 <div id="map">
 </div>
-    
 
 {{#each allparties}}
-<div class="party-list card" style="width: 18rem;">
-  <img class="card-img-top" src="/images/party1.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">{{name}}</h5>
-    <p class="card-text">{{formatDate date}}</p>
-    <p class="card-text">{{music}}</p>
-    <p class="card-text">{{category}}</p>
-    <p class="card-text">{{description}}</p> 
-    <p class="card-text">@{{user.username}}</p>
- 
- <a href="parties/{{_id}}" class="btn btn-primary">see the details</a>
+  <div class="party-list card" style="width: 18rem;">
+    <img class="card-img-top" src="/images/party1.jpg" alt="Card image cap" />
+    <div class="card-body">
+      <h5 class="card-title">{{name}}</h5>
+      <p class="card-text">{{formatDate date}}</p>
+      <p class="card-text">{{music}}</p>
+      <p class="card-text">{{category}}</p>
+      <p class="card-text">{{description}}</p>
+      <p class="card-text">@{{user.username}}</p>
+
+      <a href="parties/{{_id}}" class="btn btn-primary">see the details</a>
+    </div>
   </div>
-</div>
 {{/each}}
 
+<style>
 
+  #map { height: 50%; width: 50%; } / html, body { height: 100%; margin: 0;
+  padding: 0; }
+</style>
 
+<script>
 
+  const parties =
+  {{{stringyfiedparties}}}; 
 
+  function initMap() { 
+  
+  let options = { zoom: 13, center: { lat: 52.52, lng: 13.405 }, }; 
+  
+  let map = new google.maps.Map(document.getElementById("map"), options); 
+  
+  const geocoder = new google.maps.Geocoder(); 
+  
+  parties.forEach((party) => { 
+    geocoder.geocode({ address: party.location }, (results, status) => { if (status === "OK") {
+      map.setCenter(results[0].geometry.location); 
 
- <style>
+  const marker = new google.maps.Marker({ map, position: results[0].geometry.location, }); 
+  
+  const infoWindow = new google.maps.InfoWindow({ content: party.name });
 
-      #map {
-        height: 50%;
-        width: 50%;
-      }
-      /
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
+  marker.addListener("click", function () { infoWindow.open(map, marker); }) }
+  }); }) }
 
+</script>
 
-    
-    
-    <script>
-     const parties = {{{stringyfiedparties}}};
-
-      function initMap() {
-        let options = {
-          zoom: 13,
-          center: { lat: 52.52, lng: 13.405 },
-        };
-           let map = new google.maps.Map(document.getElementById("map"), options);      
-     
-   
-      const geocoder = new google.maps.Geocoder();
-      
-    parties.forEach((party) => {
-     geocoder.geocode({ address: party.location }, (results, status) => {
-      if (status === "OK") {
-
-
-          // set the location of the map obtained by the API
-          map.setCenter(results[0].geometry.location);
-
-          // add the marker with the obtained location
-          const marker = new google.maps.Marker({
-          map,
-            position: results[0].geometry.location,
-        
-          });
-          const infoWindow = new google.maps.InfoWindow({ content: party.name
-        }); marker.addListener("click", function () { infoWindow.open(map,
-        marker); })
-          
-          
-       } 
-     });
-  })
-}
-    </script>
-    
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxJHXRZO_vG18Q4WIRHjtQkjqz-J4Kak8&callback=initMap"
+<script
+      src="https://maps.googleapis.com/maps/api/js?key={{{apiKey}}}&callback=initMap"
       async
       defer
     >
     </script>
 
-    
+</script>
+

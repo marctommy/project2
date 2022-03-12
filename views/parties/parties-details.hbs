@@ -9,8 +9,8 @@
 
   <div class="party-list card">
     <img
+      src="https://picsum.photos/200/300?random=2"
       class="card-img-top"
-      src="/images/party1.jpg"
       height="400px"
       width="400px"
       alt="Card image cap"
@@ -32,29 +32,41 @@
 
     <div class="card-body" id="map">
 
-      <script>
+     <script>
+       
+        const oneParty = {{{stringyfiedparty}}}
 
-        const oneParty =
-        {{{stringyfiedparty}}}
+        function initMap() { 
+           console.log(oneParty)
+          let options = { zoom: 13, center: { lat: 52.52, lng: 13.405 } }; 
 
-        function initMap() { let options = { zoom: 13, center: { lat: 52.52,
-        lng: 13.405 }, }; let map = new
-        google.maps.Map(document.getElementById("map"), options); const geocoder
-        = new google.maps.Geocoder(); oneParty.map((party) => {
-        geocoder.geocode({ address: party }, (results, status) => { if (status
-        === "OK") { oneParty.setCenter(results[0].geometry.location); const
-        marker = new google.maps.Marker({ map, position:
-        results[0].geometry.location, }); const infoWindow = new
-        google.maps.InfoWindow({ content: party.name });
-        marker.addListener("click", function () { infoWindow.open(map, marker);
-        }) } }); }) }
+          let map = new google.maps.Map(document.getElementById("map"), options); 
+        
+          const geocoder= new google.maps.Geocoder(); 
 
+        
+          geocoder.geocode({ address: oneParty.location }, (results, status) => { 
+            if (status === "OK") { 
+              console.log(results[0])
+              const marker = new google.maps.Marker({ map, position: results[0].geometry.location, }); 
+          
+              const infoWindow = new google.maps.InfoWindow({ content: oneParty.name });
+
+              marker.addListener("click", function () { infoWindow.open(map, marker) })
+              }
+          })
+          
+        } 
       </script>
-      <script
-        async
-        defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxJHXRZO_vG18Q4WIRHjtQkjqz-J4Kak8&&callback=initMap"
-      ></script>
+     
+
+<script
+      src="https://maps.googleapis.com/maps/api/js?key={{{apiKey}}}&callback=initMap"
+      async
+      defer
+    >
+    </script>
+
 
     </div>
 
