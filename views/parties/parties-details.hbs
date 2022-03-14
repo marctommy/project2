@@ -3,41 +3,55 @@
   background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 </style>
 
-<div class='container-fluid'>
+{{> navbar}}
+  <section class="card-detail">
+    <article class="card-detail-body">
+      <div class='card-content'>
+        <h2 class='card-title'>{{party.name}}</h2>
+        <h4 class='card-text'><i class="fa-regular fa-calendar-days" style="color:dodgerblue"></i>&nbsp;{{formatDate date}}</h4>
+        <h4 class='card-text'><i class="fa-solid fa-location-dot" style="color:crimson"></i>&nbsp;{{party.location}}</h4>
+        <h4 class='card-text'><i class="fa-regular fa-clock" style="color: darkslateblue;"></i>&nbsp;{{party.start}}</h4>
+        <h4 class='card-text'><i class="fa-solid fa-music" style="color:#e73c7e"></i>&nbsp;{{party.music}}</h4>
+        <h4 class='card-text'><i class="fa-solid fa-heart" style="color:darkgoldenrod"></i>&nbsp;{{party.category}}</h4>
+        <p class='card-text'><i class="fa-solid fa-bullhorn" style="color: #e73c7e;"></i>&nbsp; &nbsp;{{party.description}}</p>
+      </div>
+      <div class="detail-author-name">
+        <div class="author-name-prefix"><i class="fa-solid fa-user-tie"></i> Host by<a href="#"> @{{party.user.name}}</a></div> 
+      </div>
+      <div class='card-body' id='map'></div>
+      <div class="tags">
+        {{{editBtn party.user user party._id}}}
+        <a href="/parties">Go back to the list</a>
+      </div>
+    </article>
+   </section>
 
-  <div class='party-list card'>
-    <img class='card-img-top' src='/images/party1.jpg' height='400px' width='400px' alt='Card image cap' />
-    <div class='card-body'>
-      <h4 class='card-title'>{{party.name}}</h4>
-      <h5 class='card-title'>{{party.location}}</h5>
-      <p class='card-text'>{{formatDate date}}</p>
-      <p class='card-text'>{{party.start}}</p>
-      <p class='card-text'>{{party.music}}</p>
-      <p class='card-text'>{{party.category}}</p>
-      <p class='card-text'>{{party.description}}</p>
-      <a href='/parties/{{party._id}}/edit'>edit</a>
-    </div>
 
-    <style>
-      #map { height: 300px; width: 600px }
+<script>
+  
+  const oneParty = {{{stringyfiedparty}}}
 
-    </style>
+  function initMap() { 
+      console.log(oneParty)
+    let options = { zoom: 13, center: { lat: 52.52, lng: 13.405 } }; 
 
-    <div class='card-body' id='map'>
+    let map = new google.maps.Map(document.getElementById("map"), options); 
+  
+    const geocoder= new google.maps.Geocoder(); 
 
-      <script>
+  
+    geocoder.geocode({ address: oneParty.location }, (results, status) => { 
+      if (status === "OK") { 
+        map.setCenter(results[0].geometry.location); 
+        const marker = new google.maps.Marker({ map, position: results[0].geometry.location, }); 
+    
+        const infoWindow = new google.maps.InfoWindow({ content: oneParty.name });
 
-        const oneParty =
-        {{{stringyfiedparty}}}
+        marker.addListener("click", function () { infoWindow.open(map, marker) })
+        }
+    })
+  } 
+  
+</script>
 
-        function initMap() { let options = { zoom: 13, center: { lat: 52.52, lng: 13.405 }, }; let map = new google.maps.Map(document.getElementById("map"), options); const geocoder = new google.maps.Geocoder(); oneParty.map((party) => {
-        geocoder.geocode({ address: party }, (results, status) => { if (status === "OK") { oneParty.setCenter(results[0].geometry.location); const marker = new google.maps.Marker({ map, position: results[0].geometry.location, }); const infoWindow =
-        new google.maps.InfoWindow({ content: party.name }); marker.addListener("click", function () { infoWindow.open(map, marker); }) } }); }) }
-
-      </script>
-      <script async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDxJHXRZO_vG18Q4WIRHjtQkjqz-J4Kak8&&callback=initMap'></script>
-
-    </div>
-
-  </div>
-</div>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{{apiKey}}}&callback=initMap"></script>
