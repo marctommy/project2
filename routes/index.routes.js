@@ -1,14 +1,11 @@
 const router = require("express").Router();
-const { ensureAuth, ensureGuest } = require('../config/auth')
+const { ensureProfile } = require('../config/auth')
 
 
 /* GET home page */
-router.get("/", (req, res, next) => {
-  res.render("index");
-});
-
-router.get("/user-profile", (_, res) => {
-  res.render("users/user-profile");
+router.get("/", ensureProfile, (req, res, next) => {
+    const { id } = req.user
+    res.render('index', { style: 'style.css', id})
 });
 
 module.exports = router;

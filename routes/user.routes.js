@@ -14,8 +14,10 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.get("/edit/:id", (req, res) => {
-  const { id } = req.params;
+router.get("/:id/edit", (req, res) => {
+ 
+  const { id } = req.params
+
   User.findById(id)
     .then((loggedInUser) => {
       console.log(id);
@@ -26,7 +28,7 @@ router.get("/edit/:id", (req, res) => {
     });
 });
 
-router.post("/edit/:id", (req, res) => {
+router.post(":id/edit", (req, res) => {
   const { id } = req.params;
 
   const { name, age, location, music, partyType, description } = req.body;
