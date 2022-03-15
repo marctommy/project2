@@ -1,11 +1,14 @@
 const router = require("express").Router();
 const Party = require("../models/Party.model");
 const User = require("../models/User.model");
+
 const { ensureAuth, ensureGuest } = require("../config/auth");
 require('dotenv').config()
 
-router.get("/", (req, res, next) => {
+
+router.get('/', (req, res, next) => {
   Party.find()
+
     .populate("user")
     .sort({ createAt: "desc" })
     .lean()
@@ -15,30 +18,23 @@ router.get("/", (req, res, next) => {
         allparties,
         apiKey: process.env.API_KEY
       });
+
     })
     .catch((err) => {
       console.log(err);
     });
 });
 
-router.get("/create", ensureAuth, (req, res) => {
-  res.render("parties/parties-create");
+
+router.get('/create', ensureAuth, (req, res) => {
+  res.render('parties/parties-create');
 });
 
-router.post("/create", (req, res) => {
-  req.body.user = req.user.id;
-  const { name, location, date, start, music, category, description, user } =
-    req.body;
-  Party.create({
-    name,
-    location,
-    date,
-    start,
-    music,
-    category,
-    description,
-    user,
-  })
+router.post('/create', (req, res) => {
+  req.body.user = req.user.id
+  const { name, location, date, start, music, category, description, user } = req.body;
+  Party.create({ name, location, date, start, music, category, description, user })
+
     .then(() => {
       res.redirect("/parties");
     })
@@ -64,30 +60,29 @@ router.get("/:partyId", ensureAuth, (req, res) => {
     });
 });
 
-router.get("/:partyId/edit", ensureAuth, (req, res, next) => {
+
+router.get('/:partyId/edit', ensureAuth, (req, res, next) => {
+
   const { partyId } = req.params;
 
   Party.findById(partyId)
     .then((party) => {
-      res.render("parties/parties-edit", { party });
+      res.render('parties/parties-edit', { party });
     })
     .catch((error) => {
       console.log(error);
     });
 });
 
-router.post("/:partyId/edit", (req, res, next) => {
+router.post('/:partyId/edit', (req, res, next) => {
   const { partyId } = req.params;
-  const { name, location, date, start, music, category, description } =
-    req.body;
+  const { name, location, date, start, music, category, description } = req.body;
 
-  Party.findByIdAndUpdate(
-    partyId,
-    { name, location, date, start, music, category, description },
-    { new: true }
-  )
+  Party.findByIdAndUpdate(partyId, { name, location, date, start, music, category, description }, { new: true })
     .then(() => {
-      res.redirect("/parties");
+
+      res.redirect('/parties');
+
     })
     .catch((error) => {
       console.log(error);

@@ -1,88 +1,356 @@
-* {
-    margin: 0;
-    padding: 0
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+
+/* party-list css */
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #121213;
+  color: white;
+  font-family: 'DM Mono', monospace;
+  box-sizing: border-box;
 }
 
-body {
-    background-color: #000
+.map-container {
+  text-align: center;
+  padding: 3rem 0 0;
+}
+
+.map-layout h1 {
+  margin: 2rem 0;
+}
+
+.create-btn a {
+  font-style: normal;
+  font-weight: 700;
+  color: #7a7a8c;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  border: 3px solid #28242f;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem 0.5rem;
+  position: relative;
+}
+
+.create-btn a:hover {
+  background: linear-gradient(90deg, #502cb4, #e80df0);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  border-color: white;
+}
+
+
+.mapper {
+  padding: 3rem;
+}
+
+#map {
+  height: 60%;
+  width: 95%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.card-list {
+  display: flex;
+  padding: 3rem;
+  flex-wrap: wrap;
 }
 
 .card {
-    width: 350px;
-    background-color: #efefef;
-    border: none;
-    cursor: pointer;
-    transition: all 0.5s
+  width: 100%;
+  max-width: 380px;
+  min-width: 280px;
+  padding: 1.2rem;
+  border-radius: 16px;
+  background: #17141d;
+  box-shadow: 0 1rem 2rem #000;
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s;
+  margin: 1rem;
+  clear: both;
+  position: relative;
 }
 
-.image img {
-    transition: all 0.5s
+.card:focus-within ~ .card,
+.card:hover ~ .card {
+  transform: translateX(30px);
 }
 
-.card:hover .image img {
-    transform: scale(1.5)
+.card:hover {
+  transform: translateY(-1rem);
 }
 
-.btn {
-    height: 140px;
-    width: 140px;
-    border-radius: 50%
+.card-header {
+  margin-bottom: auto;
+  padding: 0 20px;
 }
 
-.name {
-    font-size: 22px;
-    font-weight: bold
+.card-header p {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  color: #7a7a8c;
 }
 
-.idd {
-    font-size: 14px;
-    font-weight: 600
+.card-header a {
+  font-size: 180%;
+  margin: 0.25rem 0 auto;
+  padding: 0 0 1rem 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  border: 0;
+  display: inline-block;
+  cursor: pointer;
 }
 
-.idd1 {
-    font-size: 12px
+.card-header a:hover {
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
-.number {
-    font-size: 22px;
-    font-weight: bold
+.card-author {
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  align-items: center;
+  position: relative;
 }
 
-.follow {
-    font-size: 12px;
-    font-weight: 500;
-    color: #444444
+.author-avatar {
+  grid-area: auto;
+  align-self: start;
+  position: relative;
+  box-sizing: border-box;
 }
 
-.btn1 {
-    height: 40px;
-    width: 150px;
-    border: none;
-    background-color: #000;
-    color: #aeaeae;
-    font-size: 15px
+.author-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  display: block;
+  overflow: hidden;
+  margin: 16px 10px;
 }
 
-.text span {
-    font-size: 13px;
-    color: #545454;
-    font-weight: 500
+.author-name {
+  grid-area: auto;
+  box-sizing: border-box;
 }
 
-.icons i {
-    font-size: 19px
+.author-name-prefix {
+  font-style: normal;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #7a7a8c;
 }
 
-hr .new1 {
-    border: 1px solid
+.half-circle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 48px;
+  fill: none;
+  stroke: #ff8a00;
+  stroke-width: 8;
+  stroke-linecap: round;
+  pointer-events: none;
 }
 
-.join {
-    font-size: 14px;
-    color: #a0a0a0;
-    font-weight: bold
+.tags {
+  line-height: 2;
+  margin-top: 1rem;
 }
 
-.date {
-    background-color: #ccc
+.tags a {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #7a7a8c;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  border: 3px solid #28242f;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem 0.5rem;
+  position: relative;
+}
+
+.tags a:hover {
+  background: linear-gradient(90deg, #9655ff, #e52e71);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  border-color: white;
+}
+
+/* party-detail css  */
+.card-detail {
+  padding: 2rem;
+}
+
+.card-detail-body {
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  min-width: 250px;
+  padding: 2rem;
+  border-radius: 16px;
+  background: #17141d;
+  box-shadow: 0 1rem 2rem #000;
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s;
+  margin: 1.5rem auto;
+  position: relative;
+}
+
+.card-content h2 {
+  font-size: 3rem;
+  margin: 1.5rem 0 3rem 0;
+  text-transform: uppercase;
+}
+
+.card-content h4 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  line-height: 2;
+}
+
+.card-content p {
+  text-align: justify;
+  font-size: 1rem;
+  margin-top: 3rem;
+  line-height: 1.5;
+  font-weight: 300;
+  color: #a9a9a9;
+  padding: 0 2rem;
+}
+
+.card-content i {
+  font-size: 1.5rem;
+}
+
+.card-detail-body #map {
+  width: 100%;
+  max-width: 550px;
+  height: 100%;
+  max-height: 400px;
+  min-height: 300px;
+  margin-bottom: 1rem;
+}
+
+.detail-author-name {
+  margin: 1rem 0;
+}
+
+.author-name-prefix {
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #7a7a8c;
+}
+
+
+/* party create & eidt form css */
+.container {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  margin: 30px;
+  padding: 50px 30px;
+  background-color: #17141d;
+  /* background-image: linear-gradient(to right top, #17191d, #141a1d, #121b1c, #131c19, #161c16); */
+  /* background-image: linear-gradient(to bottom, #00bc7e, #108775); */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+}
+
+form h1 {
+  color: #fff;
+  font-size: 36px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.err-msg {
+  padding: 10px 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  color: red;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+form .form-group {
+  margin-bottom: 30px;
+}
+
+form label {
+  display: block;
+  color: #eee;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+form input {
+  appearance: none;
+  background: none;
+  outline: none;
+  border: none;
+}
+
+form input:not([type='submit']) {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  transition: 0.4s;
+  color: #222;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+form input:not([type='submit'])::placeholder {
+  color: #ccc;
+}
+
+form input:not([type='submit']):focus,
+form input:not([type='submit']):valid {
+  background-color: #fff;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+form input[type='submit'] {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #4c3361;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  transition: 0.4s;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
 }

@@ -1,69 +1,58 @@
 
+<style>
+  body{ background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); background-size: 400% 400%; animation: gradient 15s ease infinite; height: 100vh; */ } @keyframes gradient { 0% { background-position: 0% 50%; } 50% {
+  background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+</style>
 
-<div class="container-fluid">
-
-  <div class="party-list card">
-    <img
-      src="https://picsum.photos/200/300?random=2"
-      class="card-img-top"
-      height="400px"
-      width="400px"
-      alt="Card image cap"
-    />
-    <div class="card-body">
-      <h4 class="card-title">{{party.name}}</h4>
-      <h5 class="card-title">{{party.location}}</h5>
-      <p class="card-text">{{formatDate date}}</p>
-      <p class="card-text">{{party.start}}</p>
-      <p class="card-text">{{party.category}}</p>
-      <p class="card-text">{{party.description}}</p>
-
-    </div>
-
-    <style>
-      #map { height: 300px; width: 600px }
-
-    </style>
-
-    <div class="card-body" id="map">
-
-     <script>
-       
-        const oneParty = {{{stringyfiedparty}}}
-
-        function initMap() { 
-           console.log(oneParty)
-          let options = { zoom: 13, center: { lat: 52.52, lng: 13.405 } }; 
-
-          let map = new google.maps.Map(document.getElementById("map"), options); 
-        
-          const geocoder= new google.maps.Geocoder(); 
-
-        
-          geocoder.geocode({ address: oneParty.location }, (results, status) => { 
-            if (status === "OK") { 
-              map.setCenter(results[0].geometry.location); 
-              const marker = new google.maps.Marker({ map, position: results[0].geometry.location, }); 
-          
-              const infoWindow = new google.maps.InfoWindow({ content: oneParty.name });
-
-              marker.addListener("click", function () { infoWindow.open(map, marker) })
-              }
-          })
-        } 
-        
-      </script>
-     
-
-<script
-      src="https://maps.googleapis.com/maps/api/js?key={{{apiKey}}}&callback=initMap"
-      async
-      defer
-    >
-    </script>
+{{> navbar}}
+  <section class="card-detail">
+    <article class="card-detail-body">
+      <div class='card-content'>
+        <h2 class='card-title'>{{party.name}}</h2>
+        <h4 class='card-text'><i class="fa-regular fa-calendar-days" style="color:dodgerblue"></i>&nbsp;{{formatDate date}}</h4>
+        <h4 class='card-text'><i class="fa-solid fa-location-dot" style="color:crimson"></i>&nbsp;{{party.location}}</h4>
+        <h4 class='card-text'><i class="fa-regular fa-clock" style="color: darkslateblue;"></i>&nbsp;{{party.start}}</h4>
+        <h4 class='card-text'><i class="fa-solid fa-music" style="color:#e73c7e"></i>&nbsp;{{party.music}}</h4>
+        <h4 class='card-text'><i class="fa-solid fa-heart" style="color:darkgoldenrod"></i>&nbsp;{{party.category}}</h4>
+        <p class='card-text'><i class="fa-solid fa-bullhorn" style="color: #e73c7e;"></i>&nbsp; &nbsp;{{party.description}}</p>
+      </div>
+      <div class="detail-author-name">
+        <div class="author-name-prefix"><i class="fa-solid fa-user-tie"></i> Host by<a href="#"> @{{party.user.name}}</a></div> 
+      </div>
+      <div class='card-body' id='map'></div>
+      <div class="tags">
+        {{{editBtn party.user user party._id}}}
+        <a href="/parties">Go back to the list</a>
+      </div>
+    </article>
+   </section>
 
 
-    </div>
+<script>
+  
+  const oneParty = {{{stringyfiedparty}}}
 
-  </div>
-</div>
+  function initMap() { 
+      console.log(oneParty)
+    let options = { zoom: 13, center: { lat: 52.52, lng: 13.405 } }; 
+
+    let map = new google.maps.Map(document.getElementById("map"), options); 
+  
+    const geocoder= new google.maps.Geocoder(); 
+
+  
+    geocoder.geocode({ address: oneParty.location }, (results, status) => { 
+      if (status === "OK") { 
+        map.setCenter(results[0].geometry.location); 
+        const marker = new google.maps.Marker({ map, position: results[0].geometry.location, }); 
+    
+        const infoWindow = new google.maps.InfoWindow({ content: oneParty.name });
+
+        marker.addListener("click", function () { infoWindow.open(map, marker) })
+        }
+    })
+  } 
+  
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{{apiKey}}}&callback=initMap"></script>

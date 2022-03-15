@@ -1,60 +1,83 @@
-<div id="map">
-</div>
 
-{{#each allparties}}
-  <div class="party-list card" style="width: 18rem;">
-    <img class="card-img-top" src="/images/party1.jpg" alt="Card image cap" />
-    <div class="card-body">
-      <h5 class="card-title">{{name}}</h5>
-      <p class="card-text">{{formatDate date}}</p>
-      <p class="card-text">{{music}}</p>
-      <p class="card-text">{{category}}</p>
-      <p class="card-text">{{description}}</p>
-      <p class="card-text">@{{user.username}}</p>
-
-      <a href="parties/{{_id}}" class="btn btn-primary">see the details</a>
+ {{> navbar}}
+<section class="map-container">
+  <article class="map-layout">
+    <h1>Find Your Party</h1>
+    <div class="create-btn"> <a href="/parties/create">Post a party </a></div>
+    <div class="mapper">
+      <div id="map"></div>
     </div>
-  </div>
-{{/each}}
+  </article>
+</section>
+    
+<section class="card-list">
+  {{#each allparties}}
+    <article class="card">
+      <header class="card-header">
+        <a href="/parties/{{_id}}">{{name}}</a>
+        <p>📅  {{formatDate date}}</p>
+        <p>🎵  {{music}}</p>
+        <p>💜 {{category}}</p>
+        <p>{{truncate description 80}}</p>
+      </header>
+         
+        <div class="card-author">
+          <a class="author-avatar" href="#">
+            <img src="/images/smoke.jpg" />
+          </a>
+          {{!-- <svg class="half-circle" viewBox="0 0 106 57">
+            <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+          </svg> --}}
 
-<style>
+          <div class="author-name">
+            <div class="author-name-prefix">Host by</div>
+            <p>@{{user.username}}</p>
+          </div>
+        </div>
+        <div class="tags">
+          <a href="/parties/{{_id}}">detail</a>
+          {{{editBtn user ../user _id}}}
+        </div>
+      </article>
+  {{/each}}
+ </section>
 
-  #map { height: 50%; width: 50%; } / html, body { height: 100%; margin: 0;
-  padding: 0; }
-</style>
 
 <script>
-
-  const parties =
-  {{{stringyfiedparties}}}; 
-
-  function initMap() { 
+  const parties = {{{stringyfiedparties}}};
+  function initMap() {
+    let options = {
+      zoom: 13,
+      center: { lat: 52.52, lng: 13.405 },
+    };
+        let map = new google.maps.Map(document.getElementById("map"), options);      
   
-  let options = { zoom: 13, center: { lat: 52.52, lng: 13.405 }, }; 
-  
-  let map = new google.maps.Map(document.getElementById("map"), options); 
-  
-  const geocoder = new google.maps.Geocoder(); 
-  
-  parties.forEach((party) => { 
-    geocoder.geocode({ address: party.location }, (results, status) => { if (status === "OK") {
-      map.setCenter(results[0].geometry.location); 
 
-  const marker = new google.maps.Marker({ map, position: results[0].geometry.location, }); 
+  const geocoder = new google.maps.Geocoder();
   
-  const infoWindow = new google.maps.InfoWindow({ content: party.name });
-
-  marker.addListener("click", function () { infoWindow.open(map, marker); }) }
-  }); }) }
-
+  parties.forEach((party) => {
+    geocoder.geocode({ address: party.location }, (results, status) => {
+    if (status === "OK") {
+        // set the location of the map obtained by the API
+        map.setCenter(results[0].geometry.location);
+        // add the marker with the obtained location
+        const marker = new google.maps.Marker({
+        map,
+          position: results[0].geometry.location,
+      
+        });
+        const infoWindow = new google.maps.InfoWindow({ content: party.name
+      }); marker.addListener("click", function () { infoWindow.open(map,
+      marker); })      
+      } 
+    });
+  })
+}
 </script>
 
 <script
-      src="https://maps.googleapis.com/maps/api/js?key={{{apiKey}}}&callback=initMap"
-      async
-      defer
-    >
-    </script>
-
+  src="https://maps.googleapis.com/maps/api/js?key={{{apiKey}}}&callback=initMap"
+  async
+  defer
+>
 </script>
-

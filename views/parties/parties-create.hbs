@@ -1,77 +1,64 @@
-<h2>Post Your Party</h2>
 
-<form class="row g-3" action="/parties/create" method="post">
+{{> navbar}}
+<section class="container">
+  <form class='row g-3' action='/parties/create' method='post'>
+  
+    <h1>Post Your Party</h1>
+    <div class='col-12'>
+      <label for='inputName' class='form-label'>Party name</label>
+      <input type='name' class='form-control' id='name' name='name' />
+    </div>
+  
+    <div class='col-12'>
+      <label for='inputLocation' class='form-label'>Location</label>
+      <input placeholder="Storkower Str. 132, 10407 Berlin" type='location' class='form-control' id='inputLocation' name='location' />
+    </div>
+  
+    <div class='col-md-6'>
+      <label for='inputDate' class='form-label'>Date</label>
+      <input type='date' class='form-control' id='inputDate' name='date' />
+    </div>
+  
+    <div class='col-md-6'>
+      <label for='inputStart' class='form-label'>Start at</label>
+      <input type='time' class='form-control' id='inputStart' name='start' />
+    </div>
+  
+    <div class='col-md-6'>
+      <label for='music' class='form-label'>Music</label>
+      <select id='music' class='form-select' name='music'>
+        <option selected>Choose🎵</option>
+        <option value='Electro'>Electro</option>
+        <option value='Techno'>Techno</option>
+        <option value='Hiphop'>Hiphop</option>
+        <option value='Rock'>Rock</option>
+        <option value='Pop'>Pop</option>
+        <option value='Jazz'>Jazz</option>
+        <option value='Country Music'>Country Music</option>
+      </select>
+    </div>
+  
+    <div class='col-md-6'>
+      <label for='category' class='form-label'>Categories</label>
+      <select multiple id='category' class='form-select' name='category'>
+        <option selected value="💜">💜</option>
+        <option value='🚬'>🚬</option>
+        <option value='🚭'>🚭</option>
+        <option value='🏳️‍🌈'>🏳️‍🌈</option>
+        <option value='🧒'>🧒</option>
+        <option value='🐶'>🐶</option>
+        <option value='🐱'>🐱</option>
+      </select>
+    </div>
+  
+    <div class='col-12'>
+      <label for='description' class='form-label'>Description</label>
+      <textarea name='description' placeholder="Please bring your own drinks and smile :)" class='form-control' id='description' rows='3'></textarea>
+    </div>
 
-  <div class="col-12">
-    <label for="inputName" class="form-label">Party name</label>
-    <input type="name" class="form-control" id="name" name="name" />
-  </div>
-
-  <div class="col-12">
-    <label for="inputLocation" class="form-label">Location</label>
-    <input
-      placeholder="Storkower Str. 132, 10407 Berlin"
-      type="location"
-      class="form-control"
-      id="inputLocation"
-      name="location"
-    />
-  </div>
-
-  <div class="col-md-6">
-    <label for="inputDate" class="form-label">Date</label>
-    <input type="date" class="form-control" id="inputDate" name="date" />
-  </div>
-
-  <div class="col-md-6">
-    <label for="inputStart" class="form-label">Start at</label>
-    <input type="time" class="form-control" id="inputStart" name="start" />
-  </div>
-
-  <div class="col-md-6">
-    <label for="music" class="form-label">Music</label>
-    <select id="music" class="form-select" name="music">
-      <option selected>Choose...</option>
-      <option value="Electro">Electro</option>
-      <option value="Techno">Techno</option>
-      <option value="Hiphop">Hiphop</option>
-      <option value="Rock">Rock</option>
-      <option value="Pop">Pop</option>
-      <option value="Jazz">Jazz</option>
-      <option value="Country Music">Country Music</option>
-    </select>
-  </div>
-
-  <div class="col-md-6">
-    <label for="category" class="form-label">Categories</label>
-    <select multiple id="category" class="form-select" name="category">
-      <option selected>Choose...</option>
-      <option value="non-smoking">non-smoking</option>
-      <option value="smoking">smoking</option>
-      <option value="none">...</option>
-    </select>
-  </div>
-
-  <div class="mb-3">
-    <label
-      for="exampleFormControlTextarea1"
-      class="form-label"
-    >Description</label>
-    <textarea
-      name="description"
-      class="form-control"
-      id="description"
-      rows="3"
-    ></textarea>
-  </div>
-
-  <div class="col-12">
-    <label for="imageUrl" class="form-label">Image Url</label>
-    <input type="imageUrl" class="form-control" id="imageUrl" name="imageUrl" />
-  </div>
-
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
-
-</form>
+    <div class="tags">
+            <input type="submit" value="Submit" />
+    </div>
+  
+  </form>
+</section>

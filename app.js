@@ -110,17 +110,23 @@ app.use(passport.session());
 app.use(flash());
 
 // Global variables
-app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash("success_msg");
-  res.locals.error_msg = req.flash("error_msg");
+
+app.use(function(req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.user = req.user || null
+
   next();
 });
 
 //authentication for the hbs
-app.use((req, res, next) => {
-  if (req.isAuthenticated) res.locals.isAuthenticated = req.isAuthenticated();
+
+app.use((req,res,next)=>{
+  if(req.isAuthenticated) res.locals.isAuthenticated = req.isAuthenticated();
+
   next();
 });
+
 
 const index = require("./routes/index.routes");
 const partyRoutes = require("./routes/party.routes");
@@ -132,10 +138,32 @@ app.use("/parties", partyRoutes);
 app.use("/", authRoutes);
 app.use("/users", usersRoutes);
 
+
+//hbs helper
+
 hbs.registerHelper("formatDate", function (dateString) {
   return new hbs.SafeString(
     moment(dateString).format("dddd MMM DD").toUpperCase()
   );
 });
+
+hbs.registerHelper("editBtn", function (partyUser, loggedUser, partyId, floating=true) {
+  if (partyUser._id.toString() == loggedUser._id.toString()) {
+      return `<a href="/parties/${partyId}/edit">edit</a>`
+  } else {
+    return ''
+  }
+})
+
+hbs.registerHelper("truncate", function (str, len) {
+  if (str.length > len && str.length > 0) {
+    let new_str = str + ' '
+    new_str = str.substr(0, len)
+    new_str = str.substr(0, new_str.lastIndexOf(' '))
+    new_str = new_str.length > 0 ? new_str : str.substr(0, len)
+    return new_str + '...'
+  }
+  return str
+})
 
 module.exports = app;
