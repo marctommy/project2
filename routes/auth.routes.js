@@ -12,10 +12,11 @@ router.get("/signup", ensureGuest, (req, res, next) => {
 
 router.post("/signup", (req, res, next) => {
   const { username, password, name, email, url } = req.body;
-
+  
   // 1. Check username and password are not empty
   if (!username || !password || !email || !name) {
     res.render("auth/signup", { errorMessage: "please fill in all fields" });
+
     return;
   }
 

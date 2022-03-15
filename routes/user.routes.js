@@ -19,6 +19,7 @@ router.get("/:id", (req, res) => {
 });
 
 router.get("/:id/edit",  (req, res) => {
+
   const {id} = req.params
   User.findById(id)
     .then((loggedInUser) => {
@@ -31,6 +32,8 @@ router.get("/:id/edit",  (req, res) => {
 
 router.post("/:id/edit", (req, res) => {
   
+  
+  console.log(req.body)
   const { id } = req.params;
   const { name, age, location, music, partyType, description } = req.body;
   console.log(id);
@@ -43,9 +46,11 @@ router.post("/:id/edit", (req, res) => {
     music,
     partyType,
     description,
+    
   })
     .then((updatedUser) => {
       res.redirect(`/users/${updatedUser._id}`);
+     
     })
     .catch((error) => {
       console.log(error);

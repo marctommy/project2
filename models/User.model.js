@@ -34,7 +34,7 @@ const userSchema = new Schema(
       music: String, 
       partyType: String,
       description: String,
-
+    
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
