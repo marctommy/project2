@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const { model, Schema } = require('mongoose');
+const mongoose = require("mongoose");
+const { model, Schema } = require("mongoose");
 
 const partySchema = new Schema(
   {
@@ -14,11 +14,11 @@ const partySchema = new Schema(
     url: String,
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-    }
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
 );
-module.exports = mongoose.model('party', partySchema);
+module.exports = mongoose.model("party", partySchema);
