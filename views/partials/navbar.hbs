@@ -1,34 +1,40 @@
-<nav class='navbar navbar-expand-md navbar-light bg-light sticky-top'>
-  <div class='container-fluid'>
-    <a class='navbar-brand' href='/'>
-      <img src='/images/Logo.jpeg' alt='' width='30' height='30' />THE HAUS PARTY</a>
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="/images/Logo.jpeg" alt="" width="30" height="30" />THE HAUS
+      PARTY</a>
 
-    <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarResponsive'>
-      <span class='navbar-toggler-icon'></span>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarResponsive"
+    >
+      <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class='collapse navbar-collapse' id='navbarResponsive'>
-      <ul class='navbar-nav ml-auto'>
-        <li class='nav-item' active>
-          <a class='nav-link' aria-current='page' href='/'>Home</a>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" active>
+          <a class="nav-link" aria-current="page" href="/">Home</a>
         </li>
-        <li class='nav-item'>
-          <a class='nav-link' aria-current='page' href='/parties'>Parties</a>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/parties">Parties</a>
         </li>
         {{#if isAuthenticated}}
-        <li class='nav-item'>
-          <a class='nav-link' href='/logout' role='button'>Logout</a>
-        </li>
-        <li class='nav-item'>
-          <a class='nav-link' href='/users/{{id}}' role='button'>profile</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout" role="button">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/{{id}}" role="button">Profile</a>
+          </li>
         {{else}}
-        <li class='nav-item'>
-          <a class='nav-link' href='/login' role='button'>Login</a>
-        </li>
-        <li class='nav-item'>
-          <a class='nav-link' href='/signup' role='button'>signup</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login" role="button">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup" role="button">signup</a>
+          </li>
         {{/if}}
       </ul>
     </div>
