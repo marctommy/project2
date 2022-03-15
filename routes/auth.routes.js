@@ -6,8 +6,11 @@ const { ensureAuth, ensureGuest } = require("../config/auth");
 
 const saltRounds = 10;
 
-router.get("/signup", ensureGuest, (req, res, next) => {
-  res.render("auth/signup");
+
+
+router.get('/signup', ensureGuest, (req, res, next) => {
+  res.render('auth/signup' ,{ style: 'auth.css'});
+
 });
 
 router.post("/signup", (req, res, next) => {
@@ -61,8 +64,11 @@ router.post("/signup", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-router.get("/login", ensureGuest, (req, res) => {
-  res.render("auth/login");
+
+
+router.get('/login', ensureGuest, (req, res) => {
+  res.render('auth/login', { style: 'auth.css'});
+
 });
 
 router.post("/login", (req, res, next) => {

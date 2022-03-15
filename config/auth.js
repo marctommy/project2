@@ -12,11 +12,12 @@ module.exports = {
     }
     res.redirect('/');
   },
-  
-ensureProfile : function (req, res, next) { 
-  if(req.user){
-    return next()
-  } else res.render('index')
-}
+
+
+  ensureProfile: function (req,res, next) {
+    if(req.user) {
+      return next();
+    } else res.render('index')
+  }
 
 };
