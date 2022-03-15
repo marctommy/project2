@@ -3,36 +3,8 @@
   padding: 0;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap");
-
 body {
-  font-family: "DM Mono", monospace;
-  padding: 0;
-  margin: 0;
-  background-color: #121213;
-  color: white;
-  font-family: "DM Mono", monospace;
-  box-sizing: border-box;
-
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  height: 100vh;
-}
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-#partyType option[value="Superstar"] #partyType.image:before {
-  content: url(/public/images/superstar.gif);
+  background-color: #000;
 }
 
 .card {
@@ -53,8 +25,8 @@ body {
 
 .btn {
   height: 40px;
-  width: 100%;
-  background-color: #3ce753;
+  width: 100px;
+  border-radius: ;
 }
 
 .name {
@@ -76,6 +48,12 @@ body {
   font-weight: bold;
 }
 
+.follow {
+  font-size: 12px;
+  font-weight: 500;
+  color: #444444;
+}
+
 .btn1 {
   height: 40px;
   width: 150px;
@@ -89,6 +67,14 @@ body {
   font-size: 13px;
   color: #545454;
   font-weight: 500;
+}
+
+.icons i {
+  font-size: 19px;
+}
+
+hr .new1 {
+  border: 1px solid;
 }
 
 .join {

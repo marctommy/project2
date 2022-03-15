@@ -33,7 +33,7 @@ router.post("/:id/edit", (req, res) => {
   console.log(req.body);
   const { id } = req.params;
   const { name, age, location, music, partyType, description } = req.body;
-  console.log(id);
+  console.log(req.body.partyType);
   console.log(req.body);
 
   User.findByIdAndUpdate(id, {
