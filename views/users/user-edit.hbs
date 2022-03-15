@@ -1,8 +1,15 @@
-<div class="container-fluid">
 
-<div class="col-md-3">
+<style>
+  body{ background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%; animation: gradient 15s ease infinite; height:
+  100vh; */ } @keyframes gradient { 0% { background-position: 0% 50%; } 50% {
+  background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+</style>
 
-  <h2>Edit Profile Information</h2>
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div >
+        <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+ 
       
     <form action="/users/{{loggedInUser._id}}/edit" method="POST">
       <div class="mb-3">
@@ -10,11 +17,7 @@
 
         
 
-        <label class="form-label"> Username
-          <input type="text" name="username"
-          value="{{loggedInUser.username}}" class="form-control" />
-        </label>
-        c
+        
     <label class="form-label"> Name
           <input type="text" name="name"
           value="{{loggedInUser.name}}" class="form-control" />
@@ -34,31 +37,35 @@
         
         <label class="form-label"> Music
          <select class="form-select" name="music">
-      <option selected>I like</option>
-      <option value="techno">Techno</option>
-      <option value="hiphop">Hiphop</option>
-      <option value="pop">Pop</option>
-       <option value="disco">Disco</option>
+      <option value="{{loggedInUser.music}}"</option>
+      <option value="Techno">Techno</option>
+      <option value="Hiphop">Hiphop</option>
+      <option value="Pop">Pop</option>
+       <option value="Disco">Disco</option>
+       <option value="Charts">Charts</option>
     </select>
         </label>
 
         <label class="form-label"> Who are you at the Party? 
           <select class="form-select" name="partyType">
-      <option selected>I am ..</option>
-      <option value="superstar">The Superstar</option>
-      <option value="The Overly Drunk Person">The Overly Drunk Person</option>
-      <option value="paparazzo">The Drunk Paparazzo</option>
-       <option value="shotpusher">The Aggressive Shot Pusher</option>
-       <option value="babysitter">The Babysitter</option>
-       <option value="smokewhendrunk">The Person Who Only Smokes When They’re Drunk</option>
-       <option value="tabledancer">The Table Dancer</option>
-       <option value="playlisthijacker">The Playlist Hijacker</option>
-       <option value="freestyler">The Freestyler</option>
-       
+      <option value="{{loggedInUser.partyType}}"</option>
+      <option value="The Superstar ">That person who thinks to know all the lyrics to every song in existence. The world is your stage.</option>
+      <option value="The Overly Drunk Person">It doesn’t matter where you go: there is always that one person who crashes way too fast.</option>
+      <option value="The Drunk Paparazzo">You’ll find this person roaming the party. Just to make sure every single party moment is well-documented.
+
+</option>
+       <option value="The Aggressive Shot Pusher">That person who will only stop yelling after you’ve done your shot. Come on, it’s only one!</option>
+       <option value="The Babysitter">Being the babysitter amongst your drunk friends is like being a kindergarten teacher on a field trip.</option>
+       <option value="The Person Who Only Smokes When They’re Drunk">While sober, cigarettes are unhealthy and smell nast. While a drunk that person smokes like a chimney.</option>
+       <option value="The Table Dancer">We all cringe a little when someone starts dancing on the table. Not in fear of their safety but rather ours.</option>
+       <option value="The Crier">Tears will flow with this one, whether it’s because of a nasty fall or for simply no reason at all.</option>
+       <option value="The Playlist Hijacker">The person who is the first one to connect to the speakers and the last one to take song requests.</option>
+       <option value="The Freestyler">The person that’s bringing sexy back with some good old fashion dance moves.
+</option>
     </select>
 
         <label class="form-label">Description 
-          <textarea name="description" class='form-control' rows='5' placeholder="A short description about yourself. Don't write a book."></textarea>
+          <textarea name="description" class='form-control' rows='5' placeholder="{{loggedInUser.description}}"></textarea>
         </label>
            
      
