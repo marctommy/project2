@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+
+
+body {
+    background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    padding: 0;
+    margin: 0;
+    background-color: #121213;
+    color: white;
+    font-family: 'DM Mono', monospace;
+    box-sizing: border-box;
+  }
+  
+  .auth-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  form {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 30px;
+    padding: 50px 30px; 
+    background-image: linear-gradient(to right top, #17191d, #141a1d, #121b1c, #131c19, #161c16);
+    /* background-image: linear-gradient(to bottom, #00bc7e, #108775); */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+  }
+  
+  form h1 {
+    color: #fff;
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  
+  .err-msg {
+    padding: 10px 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: red;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  form .form-group {
+    margin-bottom: 30px;
+  }
+  
+  form label {
+    display: block;
+    color: #eee;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  form input {
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+  }
+  
+  form input:not([type='submit']) {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    transition: 0.4s;
+    color: #222;
+    font-size: 18px;
+    font-weight: 300;
+  }
+  
+  form input:not([type='submit'])::placeholder {
+    color: #ccc;
+  }
+  
+  form input:not([type='submit']):focus,
+  form input:not([type='submit']):valid {
+    background-color: #fff;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  form input[type='submit'] {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #2f4960;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    transition: 0.4s;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
