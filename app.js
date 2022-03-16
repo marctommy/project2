@@ -148,9 +148,6 @@ hbs.registerHelper("formatDate", function (dateString) {
 hbs.registerHelper(
   "editBtn",
   function (partyUser, loggedUser, partyId, floating = true) {
-    console.log("partyUser:", partyUser);
-    console.log("loggedUser:", loggedUser);
-
     if (partyUser._id.toString() == loggedUser._id.toString()) {
       return `<a href="/parties/${partyId}/edit">edit</a>`;
     } else {
@@ -158,6 +155,17 @@ hbs.registerHelper(
     }
   }
 );
+
+// hbs.registerHelper(
+//   "currentlyHosting",
+//   function (partyUser, loggedUser, partyId, floating = true) {
+//     if (partyId._id.toString() == createdBy: loggedUser._id.toString()) {
+//       return `<p>{{party.name}}</p>`;
+//     } else {
+//       return "";
+//     }
+//   }
+// );
 
 hbs.registerHelper("truncate", function (str, len) {
   if (str.length > len && str.length > 0) {

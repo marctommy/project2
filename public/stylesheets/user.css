@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap");
@@ -9,9 +10,7 @@ body {
   font-family: "DM Mono", monospace;
   padding: 0;
   margin: 0;
-  background-color: #121213;
   color: white;
-  font-family: "DM Mono", monospace;
   box-sizing: border-box;
 
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -30,9 +29,54 @@ body {
     background-position: 0% 50%;
   }
 }
-
-#partyType option[value="Superstar"] #partyType.image:before {
+/* 
+#partyType option[value="Superstar"] partyType.image:before {
   content: url(/public/images/superstar.gif);
+} */
+
+.edit-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.form {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 30px;
+  padding: 0px 30px 30px 30px;
+  background-image: linear-gradient(
+    to right top,
+    #17191d,
+    #141a1d,
+    #121b1c,
+    #131c19,
+    #161c16
+  );
+  /* background-image: linear-gradient(to bottom, #00bc7e, #108775); */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+}
+.discoball {
+  padding: 0px;
+  height: 150px;
+  width: 150px;
+}
+
+.profile {
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+form h1 {
+  color: #fff;
+  font-size: 36px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
 }
 
 .card {
@@ -45,10 +89,11 @@ body {
 
 .image img {
   border-radius: 100px;
+  border: 2px solid #3ce753;
 }
 
 .card:hover .image img {
-  transform: scale(1.04);
+  transform: scale(1.3);
 }
 
 .btn {
@@ -89,12 +134,6 @@ body {
   font-size: 13px;
   color: #545454;
   font-weight: 500;
-}
-
-.join {
-  font-size: 14px;
-  color: #a0a0a0;
-  font-weight: bold;
 }
 
 .date {
