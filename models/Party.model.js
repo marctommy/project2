@@ -3,14 +3,35 @@ const { model, Schema } = require("mongoose");
 
 const partySchema = new Schema(
   {
-    name: String,
-    location: String,
-    capacity: Number,
-    date: Date,
-    start: String,
-    music: String,
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    location: {
+      type: String,
+      required: true,
+    },
+    capacity: {
+      type: Number,
+    },
+    date: {
+      type: Date,
+      required: true,
+    },
+    start: {
+      type: String,
+      required: true,
+    },
+    music: {
+      type: String,
+      required: true,
+    },
     category: [],
-    description: String,
+
+    description: {
+      type: String,
+    },
     url: String,
     user: {
       type: mongoose.Schema.Types.ObjectId,
