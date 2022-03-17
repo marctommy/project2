@@ -1,9 +1,4 @@
 
-<style>
-  body{ background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); background-size: 400% 400%; animation: gradient 15s ease infinite; height: 100vh; */ } @keyframes gradient { 0% { background-position: 0% 50%; } 50% {
-  background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-</style>
-
 {{> navbar}}
   <section class="card-detail">
     <article class="card-detail-body">
@@ -17,7 +12,7 @@
         <p class='card-text'><i class="fa-solid fa-bullhorn" style="color: #e73c7e;"></i>&nbsp; &nbsp;{{party.description}}</p>
       </div>
       <div class="detail-author-name">
-        <div class="author-name-prefix"><i class="fa-solid fa-user-tie"></i> Host by<a href="#"> @{{party.user.name}}</a></div> 
+        <div class="author-name-prefix"><i class="fa-solid fa-user-tie"></i> Host by<a href="/users/{{id}}"> @{{party.user.name}}</a></div> 
       </div>
       <div class='card-body' id='map'></div>
       <div class="tags">

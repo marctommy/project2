@@ -29,12 +29,13 @@ const userSchema = new Schema(
 
     url: {
       type: String,
-    }, age: Number, 
-      location: String,
-      music: String, 
-      partyType: String,
-      description: String,
-    
+    },
+    age: Number,
+    location: String,
+    music: String,
+    partyType: String,
+    description: String,
+    avatar: String,
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

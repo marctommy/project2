@@ -1,24 +1,29 @@
+{{> navbar}}
 
-<style>
-  body{ background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%; animation: gradient 15s ease infinite; height:
-  100vh; */ } @keyframes gradient { 0% { background-position: 0% 50%; } 50% {
-  background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-</style>
+<section class="card-detail">
+    <article class="card-detail-body">
+      <div class='edit-container'>
 
-<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
-    <div >
-        <div class=" image d-flex flex-column justify-content-center align-items-center"> 
- 
       
     <form action="/users/{{loggedInUser._id}}/edit" method="POST">
-      <div class="mb-3">
+      <div class="form">
       
 
-        
+            
+     <label class="form-label"> Avatar
+         <select class="form-select" name="avatar">
+      <option value="{{loggedInUser.avatar}}"</option>
+      <option value="initials">Initials</option>
+      <option value="croodles">Croodles</option>
+      <option value="personas">Personas</option>
+       <option value="human">Human</option>
+       <option value="bottts">Boots</option>
+       <option value="avataaars">Avatar</option>
+    </select>
+        </label>
 
         
-    <label class="form-label"> Name
+    <label class="form-label"> Profile Name
           <input type="text" name="name"
           value="{{loggedInUser.name}}" class="form-control" />
         </label>
@@ -29,7 +34,7 @@
           value="{{loggedInUser.age}}" class="form-control" />
         </label>
 
-        <label class="form-label"> Location
+        <label class="form-label"> Neighbourhood
           <input type="text" name="location"
           value="{{loggedInUser.location}}" class="form-control" />
         </label>
@@ -46,31 +51,37 @@
     </select>
         </label>
 
-        <label class="form-label"> Who are you at the Party? 
-          <select class="form-select" name="partyType">
+        <label class="form-label"> Your Party Type
+          <select class="form-select" id="partyType" name="partyType">
       <option value="{{loggedInUser.partyType}}"</option>
-      <option value="The Superstar ">That person who thinks to know all the lyrics to every song in existence. The world is your stage.</option>
-      <option value="The Overly Drunk Person">It doesn’t matter where you go: there is always that one person who crashes way too fast.</option>
-      <option value="The Drunk Paparazzo">You’ll find this person roaming the party. Just to make sure every single party moment is well-documented.
+      <option value="The Superstar: That person who thinks to know all the lyrics to every song in existence. Every night out turns into an audition for The Voice."
+      >Superstar</option>
 
-</option>
-       <option value="The Aggressive Shot Pusher">That person who will only stop yelling after you’ve done your shot. Come on, it’s only one!</option>
-       <option value="The Babysitter">Being the babysitter amongst your drunk friends is like being a kindergarten teacher on a field trip.</option>
-       <option value="The Person Who Only Smokes When They’re Drunk">While sober, cigarettes are unhealthy and smell nast. While a drunk that person smokes like a chimney.</option>
-       <option value="The Table Dancer">We all cringe a little when someone starts dancing on the table. Not in fear of their safety but rather ours.</option>
-       <option value="The Crier">Tears will flow with this one, whether it’s because of a nasty fall or for simply no reason at all.</option>
-       <option value="The Playlist Hijacker">The person who is the first one to connect to the speakers and the last one to take song requests.</option>
-       <option value="The Freestyler">The person that’s bringing sexy back with some good old fashion dance moves.
+
+
+
+      <option value="The Overly Drunk Person: It doesn’t matter where you go: a concert, club or bar, there is always that one person who crashes way too fast."> The Overly Drunk Person input </option>
+      
+      <option value="The Drunk Paparazzo: You’ll find this person roaming the party with a selfie stick in one hand and a power bank in the other. Just to make sure every single party moment is well-documented.">The Drunk Paparazzo </option>
+
+       <option value="The Aggressive Shot Pusher: That person who will only stop yelling after you’ve done your shot. Come on, it’s only one!">The Aggressive Shot Pushe</option>
+       <option value="The Babysitter: Being the babysitter amongst your drunk friends is like being a kindergarten teacher on a field trip. “Follow the group!” “Don’t touch that!” “DON’T DRINK THAT!”">The Babysitter</option>
+       <option value="The Person Who Only Smokes When They’re Drunk: To a sober person, cigarettes are unhealthy and have a nasty smell. While a drunk person will have four cigarettes on hand and two more in their mouth.">The Person Who Only Smokes When They’re Drunk</option>
+       <option value="The Professional Beer Pong Player: To this one, beer pong is not just a game. It’s a lifestyle.">The Professional Beer Pong Player</option>
+       <option value="The Table Dancer: We all cringe a little when someone starts dancing on the table. Not in fear of their safety but rather ours.">The Table Dancer</option>
+       <option value="The Crier: Tears will flow with this one, whether it’s because of a nasty fall (off the table perhaps) or for simply no reason at all.">The Crier</option>
+       <option value="The Playlist Hijacker: The person who is the first one to connect to the speakers and the last one to take song requests.">The Playlist Hijacker</option>
+       <option value="The Freestyler: Tears will flow with this one, whether it’s because of a nasty fall (off the table perhaps) or for simply no reason at all.``">The Freestyler
 </option>
     </select>
 
         <label class="form-label">Description 
-          <textarea name="description" class='form-control' rows='5' placeholder="{{loggedInUser.description}}"></textarea>
+          <textarea name="description" class='form-control' rows='5' value="{{loggedInUser.description}}"placeholder="{{loggedInUser.description}}"></textarea>
         </label>
            
      
       <button type="submit" class="btn btn-primary">Update Information</button>
     </form>
+  </section>
+  </article>
   </div>
-</div>
-</div>

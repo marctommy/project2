@@ -148,9 +148,6 @@ hbs.registerHelper("formatDate", function (dateString) {
 hbs.registerHelper(
   "editBtn",
   function (partyUser, loggedUser, partyId, floating = true) {
-    console.log("partyUser:", partyUser);
-    console.log("loggedUser:", loggedUser);
-
     if (partyUser._id.toString() == loggedUser._id.toString()) {
       return `<a href="/parties/${partyId}/edit">edit</a>`;
     } else {

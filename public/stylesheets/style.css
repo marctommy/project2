@@ -1,46 +1,45 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
 
 body {
-	height: 100%;
-	width: 100%;
-	color: #EEEFE3;
+  height: 100%;
+  width: 100%;
+  color: #eeefe3;
 }
 
 .navbar {
-	padding: 1rem;
-	background-color: #EEEFE3 !important;
-  
+  padding: 1rem;
+  background-color: #eeefe3 !important;
 }
 
 .navbar-nav li {
-	padding-right: 20px;
+  padding-right: 20px;
 }
 
 .nav-link {
-	font-size: 1.1em !important ;
+  font-size: 1.1em !important ;
   color: rgb(254, 187, 86);
 }
 
 .carousel-caption {
-	position: absolute;
-	transform: translateY(-15%);
+  position: absolute;
+  transform: translateY(-15%);
 }
 
 .carousel-caption h2 {
-	font-size: 450%;
-	/* text-shadow: 1px 1px 15px rgb(124, 29, 143); */
+  font-size: 450%;
+  /* text-shadow: 1px 1px 15px rgb(124, 29, 143); */
 }
 
 .carousel-caption h3 {
-	font-size: 250%;
+  font-size: 250%;
   padding-top: 10px;
   padding-bottom: 20px;
-	/* text-shadow: 1px 1px 15px rgb(197, 118, 118); */
+  /* text-shadow: 1px 1px 15px rgb(197, 118, 118); */
 }
 
 .carousel-caption button {
@@ -60,7 +59,7 @@ body {
 
 .my-4 {
   width: 75%;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 .card h4 {
@@ -78,13 +77,17 @@ footer {
   background-color: #222;
 }
 
-
-
 /* Signup, login */
 
 body {
-  background-image: linear-gradient(to right, #181f19, #1c2a1e, #203624, #234229, #264f2f);
-  
+  background-image: linear-gradient(
+    to right,
+    #181f19,
+    #1c2a1e,
+    #203624,
+    #234229,
+    #264f2f
+  );
 }
 
 .auth-container {
@@ -99,7 +102,14 @@ form {
   width: 100%;
   max-width: 400px;
   padding: 50px 30px;
-background-image: linear-gradient(to right top, #17191d, #141a1d, #121b1c, #131c19, #161c16);
+  background-image: linear-gradient(
+    to right top,
+    #17191d,
+    #141a1d,
+    #121b1c,
+    #131c19,
+    #161c16
+  );
   /* background-image: linear-gradient(to bottom, #00bc7e, #108775); */
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
@@ -139,7 +149,7 @@ form input {
   border: none;
 }
 
-form input:not([type='submit']) {
+form input:not([type="submit"]) {
   display: block;
   width: 100%;
   padding: 15px;
@@ -152,17 +162,17 @@ form input:not([type='submit']) {
   font-weight: 300;
 }
 
-form input:not([type='submit'])::placeholder {
+form input:not([type="submit"])::placeholder {
   color: #ccc;
 }
 
-form input:not([type='submit']):focus,
-form input:not([type='submit']):valid {
+form input:not([type="submit"]):focus,
+form input:not([type="submit"]):valid {
   background-color: #fff;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-form input[type='submit'] {
+form input[type="submit"] {
   display: block;
   width: 100%;
   padding: 15px;
@@ -176,65 +186,55 @@ form input[type='submit'] {
   cursor: pointer;
 }
 
-
-
 /*---Media Queries --*/
 @media (max-width: 992px) {
-
 }
 @media (max-width: 768px) {
-
 }
 @media (max-width: 576px) {
-
 }
-
 
 /*---Firefox Bug Fix --*/
 .carousel-item {
-transition: -webkit-transform 0.5s ease;
-transition: transform 0.5s ease;
-transition: transform 0.5s ease, -webkit-transform 0.5s ease;
--webkit-backface-visibility: visible;
-backface-visibility: visible;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
 }
 /*--- Fixed Background Image --*/
 figure {
-position: relative;
-width: 100%;
-height: 60%;
-margin: 0!important;
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0 !important;
 }
 .fixed-wrap {
-clip: rect(0, auto, auto, 0);
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 #fixed {
-background-image: url('img/mac.png');
-position: fixed;
-display: block;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-size: cover;
-background-position: center center;
--webkit-transform: translateZ(0);
-		transform: translateZ(0);
-will-change: transform;
+  background-image: url("img/mac.png");
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
 }
 /*--- Bootstrap Padding Fix --*/
 [class*="col-"] {
   padding: 1rem;
 }
-
-
-
-
 
 /*
 Extra small (xs) devices (portrait phones, less than 576px)
@@ -252,7 +252,3 @@ Large (lg) devices (desktops, 992px and up)
 Extra (xl) large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) { ... }
 */
-
-
-
-
