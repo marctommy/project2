@@ -11,7 +11,6 @@ body {
 }
 
 /* navbar css */
-
 .navbar {
 	padding: 1rem;
 	background-color: #EEEFE3 !important;
@@ -67,6 +66,13 @@ body {
   width: 95%;
   margin: 0 auto;
 }
+
+#map div {
+  color: black;
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+}
+
 
 a {
   text-decoration: none;
@@ -279,11 +285,17 @@ a {
 
 
 /* party create & eidt form css */
+
 .container {
-  margin-top: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 4rem;
+}
+
+.editcontainer {
+  margin: auto;
+  margin-top: 3rem;
 }
 
 form {
@@ -293,8 +305,6 @@ form {
   margin: 30px;
   padding: 50px 30px;
   background-color: #17141d;
-  /* background-image: linear-gradient(to right top, #17191d, #141a1d, #121b1c, #131c19, #161c16); */
-  /* background-image: linear-gradient(to bottom, #00bc7e, #108775); */
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
 }

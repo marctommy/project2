@@ -1,4 +1,12 @@
-<form class='row g-3' action='/parties/{{party._id}}/edit' method='post'>
+<style>
+  body{ background: linear-gradient(-45deg, #F9F871, #CD68AB9B, #b487f7, #23d5ab); background-size: 400% 400%; animation: gradient 15s ease infinite; height: 100vh; */ } @keyframes gradient { 0% { background-position: 0% 50%; } 50% {
+  background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+</style>
+
+
+{{> navbar}}
+
+<form class='row g-3 editcontainer' action='/parties/{{party._id}}/edit' method='post'>
 
   <h2>Edit {{party.name}}</h2>
 
