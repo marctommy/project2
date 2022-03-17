@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Press+Start+2P&display=swap");
+
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap");
 
 body {
@@ -29,10 +31,6 @@ body {
     background-position: 0% 50%;
   }
 }
-/* 
-#partyType option[value="Superstar"] partyType.image:before {
-  content: url(/public/images/superstar.gif);
-} */
 
 .edit-container {
   display: flex;
@@ -138,4 +136,16 @@ form h1 {
 
 .date {
   background-color: #ccc;
+}
+
+.profile-name {
+  font-size: 40px;
+  font-family: "Press Start 2P", cursive;
+}
+.profile-name:hover {
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }

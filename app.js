@@ -156,17 +156,6 @@ hbs.registerHelper(
   }
 );
 
-// hbs.registerHelper(
-//   "currentlyHosting",
-//   function (partyUser, loggedUser, partyId, floating = true) {
-//     if (partyId._id.toString() == createdBy: loggedUser._id.toString()) {
-//       return `<p>{{party.name}}</p>`;
-//     } else {
-//       return "";
-//     }
-//   }
-// );
-
 hbs.registerHelper("truncate", function (str, len) {
   if (str.length > len && str.length > 0) {
     let new_str = str + " ";
