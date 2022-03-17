@@ -32,6 +32,10 @@ body {
   }
 }
 
+#partyType option[value="Superstar"] partyType.image:before {
+  content: url(/public/images/superstar.gif);
+}
+
 .edit-container {
   display: flex;
   align-items: center;

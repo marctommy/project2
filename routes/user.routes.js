@@ -2,21 +2,17 @@ const router = require("express").Router();
 const User = require("../models/User.model");
 const { ensureAuth, ensureGuest } = require("../config/auth");
 
-// router.get("/:userId", (_, res) => {
-//   res.render("users/user-profile");
-// });
-
 router.get("/:id", (req, res) => {
   const { id } = req.params;
-  // imageList = [];
-  // imageList.push({ src: "/public/images/superstar.gif", name: "superstar" });
+  const imageList = [];
+  imageList.push({ src: "/images/superstar.gif", name: "superstar" });
   User.findById(id)
     .then((loggedInUser) => {
       res.render("users/user-profile", {
         id: req.user._id,
         style: "user.css",
         loggedInUser,
-        // imageList: imageList,
+        imageList,
       });
     })
     .catch((error) => {
@@ -25,17 +21,17 @@ router.get("/:id", (req, res) => {
 });
 
 router.get("/:id/edit", (req, res) => {
-  // imageList = [];
-  // imageList.push({ src: "/public/images/superstar.gif", name: "superstar" });
+  const imageList = [];
+  imageList.push({ src: "/images/superstar.gif", name: "superstar" });
   const { id } = req.params;
-  console.log(req.body);
+  console.log(imageList);
   User.findById(id)
     .then((loggedInUser) => {
       res.render("users/user-edit", {
         id: req.user._id,
         style: "user.css",
         loggedInUser,
-        // imageList: imageList,
+        imageList,
       });
     })
     .catch((error) => {

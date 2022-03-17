@@ -14,9 +14,6 @@
           
     <img src="https://avatars.dicebear.com/api/{{loggedInUser.avatar}}/{{loggedInUser.name}}.svg" height="150" width="150" />
       
-      
-
-        
         <span class="profile-name">{{loggedInUser.name}}</span>
          {{!-- <span class="idd">{{loggedInUser.username}}</span> --}}
             <div><span class="idd1">{{user.data}}</span> 
@@ -26,7 +23,7 @@
            <div> <span class="text">🚀 {{formatDate loggedInUser.createdAt}}
             </span> </div>
             <div id="partyType"class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="text">{{loggedInUser.partyType}} 
-           {{!-- {{imageList}} --}}
+       
              
             </span> </div>
 <br>
@@ -42,6 +39,12 @@
  <div> <span class="text"> {{loggedInUser.description}} 
               
             </span> </div>
+      
+{{#each imageList}}
+
+   
+   <img class="image-image" src="{{this.src}}" alt="">
+        {{/each}}
 
 
             

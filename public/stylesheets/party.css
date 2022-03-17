@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap");
 
 /* party-list css */
 body {
@@ -7,8 +6,23 @@ body {
   margin: 0;
   background-color: #121213;
   color: white;
-  font-family: 'DM Mono', monospace;
+  font-family: "DM Mono", monospace;
   box-sizing: border-box;
+}
+
+/* navbar css */
+
+.navbar {
+  padding: 1rem;
+  background-color: #eeefe3 !important;
+}
+
+.navbar-nav li {
+  padding-right: 20px;
+}
+
+.nav-link {
+  font-size: 1.1em !important ;
 }
 
 .map-container {
@@ -40,7 +54,6 @@ body {
   background-clip: text;
   border-color: white;
 }
-
 
 .mapper {
   padding: 3rem;
@@ -261,7 +274,6 @@ a {
   color: #7a7a8c;
 }
 
-
 /* party create & eidt form css */
 .container {
   margin-top: 3rem;
@@ -318,7 +330,7 @@ form input {
   border: none;
 }
 
-form input:not([type='submit']) {
+form input:not([type="submit"]) {
   display: block;
   width: 100%;
   padding: 15px;
@@ -331,17 +343,17 @@ form input:not([type='submit']) {
   font-weight: 300;
 }
 
-form input:not([type='submit'])::placeholder {
+form input:not([type="submit"])::placeholder {
   color: #ccc;
 }
 
-form input:not([type='submit']):focus,
-form input:not([type='submit']):valid {
+form input:not([type="submit"]):focus,
+form input:not([type="submit"]):valid {
   background-color: #fff;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-form input[type='submit'] {
+form input[type="submit"] {
   display: block;
   width: 100%;
   padding: 15px;
