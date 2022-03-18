@@ -83,7 +83,6 @@ router.get("/:partyId/edit", ensureAuth, (req, res, next) => {
         res.render("parties/parties-edit", {
           style: "party.css",
           party,
-          id,
           id: req.user.id,
         });
       }

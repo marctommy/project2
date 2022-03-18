@@ -1,5 +1,6 @@
 
 {{> navbar}}
+
 <div class="edit-container">
 
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -7,7 +8,7 @@
 
 
     <div class="form profile">
-{{!-- <img class="discoball"src="/images/disco-ball.gif" alt=""> --}}
+<img style="position: absolute"class="discoball"src="/images/disco-ball.gif" alt="">
       
         <div class=" image d-flex flex-column justify-content-center align-items-center"> 
           <br>
@@ -25,21 +26,42 @@
             <div><span class="idd1">{{user.data}}</span> 
             
  
+<div class="social-links">
 
-{{#if loggedInUser.url}}
-<a class="fa fa-instagram" href="https://instagram.com/{{loggedInUser.url}}" class="fa fa-instagram"></a>
-             </div>
-           
-           {{/if}}
+      {{#if loggedInUser.url}} 
+        <a class="fa fa-instagram" href="https://instagram.com/{{loggedInUser.url}}" class="fa fa-instagram"></a>
+        
+          {{/if}}
 
-            <span class="profile-text">  Level: {{loggedInUser.age}}    </span> 
-       <div class="profile-text neighbourhood"> 
-              📍 {{loggedInUser.location}}
-              </div>
-<span class="profile-text text">🚀 {{formatDate loggedInUser.createdAt}}
-            </span> 
+      {{#if loggedInUser.git}}
+        <a class="fa fa-github" href="https://github.com/{{loggedInUser.git}}" class="fa fa-github"></a>
+          {{/if}}
+
+
+      {{#if loggedInUser.url}} 
+        <a class="fa fa-facebook" href="https://facebook.com/{{loggedInUser.fb}}" class="fa fa-facebook"></a>
+        
+          {{/if}}
 
             </div>
+<div>
+
+      <span class="profile-text text">🚀 {{formatDate loggedInUser.createdAt}} 
+
+      </span> 
+
+       <span class="profile-text">  Level: {{loggedInUser.age}}
+
+       </span> 
+       
+       <div class="profile-text neighbourhood">📍 {{loggedInUser.location}}
+
+       </div>
+</div>
+
+      
+
+    </div>
            <span>
              
            </span>
@@ -67,13 +89,13 @@
          
 <div class="tags">
   
+        <a href="/parties">Go back to the list</a>
 
 {{{isProfileOwner id loggedInUser._id}}}  
   
 
 
 
-        <a href="/parties">Go back to the list</a>
 </div>
         
                

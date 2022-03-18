@@ -6,16 +6,13 @@ const { ensureAuth, ensureGuest } = require("../config/auth");
 
 const saltRounds = 10;
 
-
-
-router.get('/signup', ensureGuest, (req, res, next) => {
-  res.render('auth/signup' ,{ style: 'auth.css'});
-
+router.get("/signup", ensureGuest, (req, res, next) => {
+  res.render("auth/signup", { style: "auth.css" });
 });
 
 router.post("/signup", (req, res, next) => {
   const { username, password, name, email, url } = req.body;
-  
+
   // 1. Check username and password are not empty
   if (!username || !password || !email || !name) {
     res.render("auth/signup", { errorMessage: "please fill in all fields" });
@@ -64,11 +61,8 @@ router.post("/signup", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-
-
-router.get('/login', ensureGuest, (req, res) => {
-  res.render('auth/login', { style: 'auth.css'});
-
+router.get("/login", ensureGuest, (req, res) => {
+  res.render("auth/login", { style: "auth.css" });
 });
 
 router.post("/login", (req, res, next) => {
@@ -79,7 +73,10 @@ router.post("/login", (req, res, next) => {
     }
     if (!theUser) {
       // Unauthorized, `failureDetails` contains the error messages from our logic in "LocalStrategy" {message: '…'}.
-      res.render("auth/login", { errorMessage: "Wrong password or username" });
+      res.render("auth/login", {
+        errorMessage: "Wrong password or username",
+        style: "auth.css",
+      });
       return;
     }
     // save user in session: req.user
@@ -100,6 +97,5 @@ router.get("/logout", (req, res) => {
   req.flash("success_msg", "You are logged out");
   res.redirect("/");
 });
-
 
 module.exports = router;

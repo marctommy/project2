@@ -42,6 +42,8 @@ const userSchema = new Schema(
       ref: "Party",
     },
     url: String,
+    git: String,
+    fb: String,
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
