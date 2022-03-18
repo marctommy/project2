@@ -1,70 +1,107 @@
-<form class='row g-3' action='/parties/{{party._id}}/edit' method='post'>
+<style>
+  body{ background: linear-gradient(-45deg, #F9F871, #CD68AB9B, #b487f7, #23d5ab); background-size: 400% 400%; animation: gradient 15s ease infinite; height: 100vh; */ } @keyframes gradient { 0% { background-position: 0% 50%; } 50% {
+  background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+</style>
+
+
+{{> navbar}}
+
+<form class='row g-3 editcontainer' action='/parties/{{party._id}}/edit' method='post'>
 
   <h2>Edit {{party.name}}</h2>
 
-  <div class='col-12'>
-    <label for='inputName' class='form-label'>Party name</label>
-    <input type='name' class='form-control' id='name' name='name' value='{{party.name}}' />
+  <div class="col-12">
+    <label for="inputName" class="form-label">Party name</label>
+    <input
+      type="name"
+      class="form-control"
+      id="name"
+      name="name"
+      value="{{party.name}}"
+    />
   </div>
 
-  <div class='col-12'>
-    <label for='inputLocation' class='form-label'>Location</label>
-    <input type='location' class='form-control' id='inputLocation' name='location' value='{{party.location}}' />
+  <div class="col-12">
+    <label for="inputLocation" class="form-label">Location</label>
+    <input
+      type="location"
+      class="form-control"
+      id="inputLocation"
+      name="location"
+      value="{{party.location}}"
+    />
   </div>
 
-  <div class='col-md-6'>
-    <label for='inputDate' class='form-label'>Date</label>
-    <input type='date' class='form-control' id='inputDate' name='date' value='{{party.date}}' />
+  <div class="col-md-6">
+    <label for="inputDate" class="form-label">Date</label>
+    <input
+      type="date"
+      class="form-control"
+      id="inputDate"
+      name="date"
+      value="{{party.date}}"
+    />
   </div>
 
-  <div class='col-md-6'>
-    <label for='inputStart' class='form-label'>Start at</label>
-    <input type='time' class='form-control' id='inputStart' name='start' value='{{party.start}}' />
+  <div class="col-md-6">
+    <label for="inputStart" class="form-label">Start at</label>
+    <input
+      type="time"
+      class="form-control"
+      id="inputStart"
+      name="start"
+      value="{{party.start}}"
+    />
   </div>
 
-  <div class='col-md-6'>
-    <label for='music' class='form-label'>Music🎵</label>
-    <select id='music' class='form-select' name='music'>
-      <option selected value='{{party.music}}'>{{party.music}}</option>
-      <option value='Electro'>Electro</option>
-      <option value='Techno'>Techno</option>
-      <option value='Hiphop'>Hiphop</option>
-      <option value='Rock'>Rock</option>
-      <option value='Pop'>Pop</option>
-      <option value='Jazz'>Jazz</option>
-      <option value='Country Music'>Country Music</option>
+  <div class="col-md-6">
+    <label for="music" class="form-label">Music🎵</label>
+    <select id="music" class="form-select" name="music">
+      <option selected value="{{party.music}}">{{party.music}}</option>
+      <option value="Electro">Electro</option>
+      <option value="Techno">Techno</option>
+      <option value="Hiphop">Hiphop</option>
+      <option value="Rock">Rock</option>
+      <option value="Pop">Pop</option>
+      <option value="Jazz">Jazz</option>
+      <option value="Country Music">Country Music</option>
 
     </select>
   </div>
 
-  
-    <div class='col-md-6'>
-      <label for='category' class='form-label'>Categories</label>
-      <select multiple id='category' class='form-select' name='category'>
-      <option selected value='{{party.category}}'>{{party.category}}</option> 
-        <option value='🚬'>🚬</option>
-        <option value='🚭'>🚭</option>
-        <option value='🏳️‍🌈'>🏳️‍🌈</option>
-        <option value='🧒'>🧒</option>
-        <option value='🐶'>🐶</option>
-        <option value='🐱'>🐱</option>
-      </select>
-    </div>
-
-
-  <div class='col-12'>
-    <label for='description' class='form-label'>Description</label>
-    <textarea name='description' class='form-control' id='description' rows='3'>{{party.description}}"</textarea>
+  <div class="col-md-6">
+    <label for="category" class="form-label">Categories</label>
+    <select multiple id="category" class="form-select" name="category">
+      <option selected value="{{party.category}}">{{party.category}}</option>
+      <option value="🚬">🚬</option>
+      <option value="🚭">🚭</option>
+      <option value="🏳️‍🌈">🏳️‍🌈</option>
+      <option value="🧒">🧒</option>
+      <option value="🐶">🐶</option>
+      <option value="🐱">🐱</option>
+    </select>
   </div>
-    <div class="tags">
-            <input type="submit" value="Save changes" />
-    </div>
 
-   
-    <form action='/parties/{{party._id}}/delete' method='post'>
-       <div class="tags">
-            <input type="submit" value="Delete" />
-      </div>
-    </form>
+  <div class="col-12">
+    <label for="description" class="form-label">Description</label>
+    <textarea
+      name="description"
+      class="form-control"
+      id="description"
+      rows="3"
+    >{{party.description}}"</textarea>
+  </div>
+  <div class="tags">
+    <input type="submit" value="Save changes" />
+  </div>
 
 </form>
+
+  <form action="/parties/{{party._id}}/delete" method="post">
+  
+
+    <div class="tags">
+      <input type="submit" value="Delete" />
+    </div>
+
+  </form>

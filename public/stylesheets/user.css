@@ -1,11 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
 
 body {
   font-family: "DM Mono", monospace;
@@ -16,7 +16,7 @@ body {
 
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 25s ease infinite;
   height: 100vh;
 }
 @keyframes gradient {
@@ -34,6 +34,7 @@ body {
 /* navbar css */
 
 .navbar {
+  font-family: "DM Mono", monospace;
   padding: 1rem;
   background-color: #eeefe3 !important;
 }
@@ -65,6 +66,28 @@ body {
 }
 
 .tags a:hover {
+  background: linear-gradient(90deg, #9655ff, #e52e71);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  border-color: white;
+}
+
+.tags button {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #7a7a8c;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  border: 3px solid #28242f;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem 0.5rem;
+  position: relative;
+}
+
+.tags button:hover {
   background: linear-gradient(90deg, #9655ff, #e52e71);
   text-shadow: none;
   -webkit-text-fill-color: transparent;
@@ -119,11 +142,15 @@ body {
   border-radius: 16px;
 }
 .discoball {
-  padding: 0px;
   height: 150px;
   width: 150px;
 }
-.form img {
+
+.social-links {
+  display: inline-block;
+}
+
+.form .profile-photo {
   background-color: #ffffff;
 }
 

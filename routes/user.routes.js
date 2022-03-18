@@ -52,8 +52,18 @@ router.post("/:id/edit", (req, res) => {
   console.log("Hello Word");
   const { id } = req.params;
   console.log(req.user);
-  const { name, age, location, music, partyType, description, avatar, url } =
-    req.body;
+  const {
+    name,
+    age,
+    location,
+    music,
+    partyType,
+    description,
+    avatar,
+    url,
+    git,
+    fb,
+  } = req.body;
 
   User.findByIdAndUpdate(id, {
     name,
@@ -64,6 +74,8 @@ router.post("/:id/edit", (req, res) => {
     description,
     avatar,
     url,
+    git,
+    fb,
   })
     .then((updatedUser) => {
       console.log(updatedUser);
