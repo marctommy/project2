@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
@@ -31,11 +32,16 @@ const userSchema = new Schema(
       type: String,
     },
     age: Number,
-    location: String,
+    location: { type: String, default: "Berlin" },
     music: String,
     partyType: String,
-    description: String,
-    avatar: String,
+    description: { type: String, default: "Don't judge a book by its cover" },
+    avatar: { type: String, default: "initials" },
+    party: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Party",
+    },
+    url: String,
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

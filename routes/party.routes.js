@@ -62,7 +62,6 @@ router.get("/:partyId", ensureAuth, (req, res) => {
         style: "party.css",
         id: req.user._id,
         stringyfiedparty: JSON.stringify(party),
-
         party,
         apiKey: process.env.API_KEY,
       });
@@ -84,6 +83,7 @@ router.get("/:partyId/edit", ensureAuth, (req, res, next) => {
         res.render("parties/parties-edit", {
           style: "party.css",
           party,
+          id,
           id: req.user.id,
         });
       }

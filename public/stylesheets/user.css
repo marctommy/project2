@@ -4,9 +4,8 @@
   box-sizing: border-box;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Press+Start+2P&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
 
 body {
   font-family: "DM Mono", monospace;
@@ -32,8 +31,65 @@ body {
   }
 }
 
-#partyType option[value="Superstar"] partyType.image:before {
-  content: url(/public/images/superstar.gif);
+/* navbar css */
+
+.navbar {
+  padding: 1rem;
+  background-color: #eeefe3 !important;
+}
+
+.navbar-nav li {
+  padding-right: 20px;
+}
+
+.nav-link {
+  font-size: 1.1em !important ;
+}
+
+.tags {
+  line-height: 2;
+  margin-top: 1rem;
+}
+
+.tags a {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #7a7a8c;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  border: 3px solid #28242f;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem 0.5rem;
+  position: relative;
+}
+
+.tags a:hover {
+  background: linear-gradient(90deg, #9655ff, #e52e71);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  border-color: white;
+}
+
+.fa {
+  color: #3ce753;
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .edit-container {
@@ -44,11 +100,12 @@ body {
 }
 
 .form {
+  font-family: Arial, Helvetica, sans-serif;
   display: block;
   width: 100%;
   max-width: 400px;
   margin: 30px;
-  padding: 0px 30px 30px 30px;
+  padding: 30px 30px 30px 30px;
   background-image: linear-gradient(
     to right top,
     #17191d,
@@ -66,12 +123,14 @@ body {
   height: 150px;
   width: 150px;
 }
+.form img {
+  background-color: #ffffff;
+}
 
 .profile {
   color: #fff;
   font-size: 16px;
   text-transform: uppercase;
-  margin-bottom: 30px;
 }
 
 form h1 {
@@ -79,6 +138,10 @@ form h1 {
   font-size: 36px;
   text-transform: uppercase;
   margin-bottom: 30px;
+}
+
+span.profile-name {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 .card {
@@ -89,13 +152,14 @@ form h1 {
   transition: all 0.5s;
 }
 
-.image img {
+.image .profile-photo {
   border-radius: 100px;
   border: 2px solid #3ce753;
 }
 
-.card:hover .image img {
-  transform: scale(1.3);
+.image:hover .profile-photo {
+  transform: scale(1.2);
+  transition: 0.5s;
 }
 
 .btn {
@@ -107,15 +171,6 @@ form h1 {
 .name {
   font-size: 22px;
   font-weight: bold;
-}
-
-.idd {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.idd1 {
-  font-size: 12px;
 }
 
 .number {
@@ -152,4 +207,9 @@ form h1 {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
+}
+
+.profile-text {
+  font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
 }

@@ -5,54 +5,80 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
 
-   
+
     <div class="form profile">
-<img class="discoball"src="/images/disco-ball.gif" alt="">
+{{!-- <img class="discoball"src="/images/disco-ball.gif" alt=""> --}}
       
         <div class=" image d-flex flex-column justify-content-center align-items-center"> 
           <br>
           
-    <img src="https://avatars.dicebear.com/api/{{loggedInUser.avatar}}/{{loggedInUser.name}}.svg" height="150" width="150" />
-      
+      <img class="profile-photo" src="https://avatars.dicebear.com/api/{{loggedInUser.avatar}}/{{loggedInUser.name}}.svg" height="150" width="150" />
+{{!--    
+{{#each imageList}}
+      <p>{{this.src}}Hello World</p>
+        {{/each}}  --}}
+
+
+
         <span class="profile-name">{{loggedInUser.name}}</span>
          {{!-- <span class="idd">{{loggedInUser.username}}</span> --}}
             <div><span class="idd1">{{user.data}}</span> 
             
-            <span>  Level: {{loggedInUser.age}}    </span> 
-            </div>
-           <div> <span class="text">🚀 {{formatDate loggedInUser.createdAt}}
-            </span> </div>
-            <div id="partyType"class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="text">{{loggedInUser.partyType}} 
-       
-             
-            </span> </div>
-<br>
-            <div> <span class="text"> {{loggedInUser.music}} 
-              
-            </span> </div>
+ 
 
-            
-            <div class="neighbourhood"> 
+{{#if loggedInUser.url}}
+<a class="fa fa-instagram" href="https://instagram.com/{{loggedInUser.url}}" class="fa fa-instagram"></a>
+             </div>
+           
+           {{/if}}
+
+            <span class="profile-text">  Level: {{loggedInUser.age}}    </span> 
+       <div class="profile-text neighbourhood"> 
               📍 {{loggedInUser.location}}
               </div>
+<span class="profile-text text">🚀 {{formatDate loggedInUser.createdAt}}
+            </span> 
 
- <div> <span class="text"> {{loggedInUser.description}} 
+            </div>
+           <span>
+             
+           </span>
+            <div 
+             id="partyType"class="d-flex flex-row justify-content-center align-items-center mt-3"> 
+              <span class="profile-text">{{loggedInUser.partyType}} </span> 
+            
+           
+             
+            </div>
+<br>
+            <div> <span class="profile-text">{{loggedInUser.music}} rules my world.
               
             </span> </div>
-      
-{{#each imageList}}
-
-   
-   <img class="image-image" src="{{this.src}}" alt="">
-        {{/each}}
-
 
             
-
-               <a href="/users/{{loggedInUser.id}}/edit" class="btn btn-primary">Edit
-        Profile</a>
+           
+ <div> <span class="profile-text"> {{loggedInUser.description}} 
               
-            <div 
+            </span> </div>
+            
+
+               {{!-- craete an if statement and only display IF url is given --}}
+
+         
+<div class="tags">
+  
+
+{{{isProfileOwner id loggedInUser._id}}}  
+  
+
+
+
+        <a href="/parties">Go back to the list</a>
+</div>
+        
+               
+              
+            
             
        
  

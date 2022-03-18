@@ -149,7 +149,18 @@ hbs.registerHelper(
   "editBtn",
   function (partyUser, loggedUser, partyId, floating = true) {
     if (partyUser._id.toString() == loggedUser._id.toString()) {
-      return `<a href="/parties/${partyId}/edit">edit</a>`;
+      return `<a href="/users/${loggedUser}/edit">edit</a>`;
+    } else {
+      return "";
+    }
+  }
+);
+
+hbs.registerHelper(
+  "isProfileOwner",
+  function (loggedInUser, id, floating = true) {
+    if (loggedInUser._id.toString() == id.toString()) {
+      return `<a href="/users/${id}/edit">edit</a>`;
     } else {
       return "";
     }
