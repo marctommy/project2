@@ -22,15 +22,13 @@
          
         <div class="card-author">
           <a class="author-avatar" href="#">
-            <img src="/images/smoke.jpg" />
+            <img src="https://avatars.dicebear.com/api/initials/{{user.name}}.svg" />
           </a>
-          {{!-- <svg class="half-circle" viewBox="0 0 106 57">
-            <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-          </svg> --}}
 
           <div class="author-name">
-            <div class="author-name-prefix">Host by</div>
-            <p>@{{user.name}}</p>
+            <div class="author-name-prefix">Host by @</div>
+            <a href="/users/{{user._id}}"> @{{user.name}}</a>
+            
           </div>
         </div>
         <div class="tags">
