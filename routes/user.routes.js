@@ -6,11 +6,6 @@ const { ensureAuth, ensureGuest } = require("../config/auth");
 router.get("/:id", (req, res) => {
   const { id } = req.params;
 
-  // const imageList = [];
-  // imageList.push({
-  //   src: "/https://avatars.dicebear.com/api/initials/:seed.svg",
-  //   name: "superstar",
-  // });
   User.findById(id)
     .populate("party")
     .then((loggedInUser) => {
@@ -28,8 +23,6 @@ router.get("/:id", (req, res) => {
 });
 
 router.get("/:id/edit", (req, res) => {
-  // const imageList = [];
-  // imageList.push({ src: "/images/superstar.gif", name: "superstar" });
   const { id } = req.params;
 
   console.log("req.user:", id);

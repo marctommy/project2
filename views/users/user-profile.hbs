@@ -2,103 +2,58 @@
 {{> navbar}}
 
 <div class="edit-container">
-
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <div class="form profile"> 
+      <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+            <br>
+            <img class="profile-photo" src="https://avatars.dicebear.com/api/{{loggedInUser.avatar}}/{{loggedInUser.name}}.svg" height="150" width="150" />
+            
+            <span class="profile-name">{{loggedInUser.name}}</span>
+            <span class="idd1">{{user.data}}</span> 
+            
+            <div class="social-links">
+            
+              {{#if loggedInUser.url}} 
+              <a class="fa fa-instagram" href="https://instagram.com/{{loggedInUser.url}}" class="fa fa-instagram"></a>
+              {{/if}}
+              
+              {{#if loggedInUser.git}}
+              <a class="fa fa-github" href="https://github.com/{{loggedInUser.git}}" class="fa fa-github"></a>
+              {{/if}}
+              
+              {{#if loggedInUser.url}} 
+              <a class="fa fa-facebook" href="https://facebook.com/{{loggedInUser.fb}}" class="fa fa-facebook"></a>
+              {{/if}}
+            
+            </div>
+            
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                <span class="profile-text-headline">  Level:  {{loggedInUser.age}} </span> 
+                <span class="profile-text-headline">Joined {{formatDate loggedInUser.createdAt}} </span> 
+                <span class="profile-text-headline">📍 {{loggedInUser.location}} </span>
+                </div>
 
+            
+                      <div class="d-flex flex-row justify-content-center align-items-center mt-3"> 
+                      <span class="profile-text">{{loggedInUser.partyType}} </span> 
+                      </div>
+                    
+                     <div class="d-flex flex-row justify-content-center align-items-center mt-3"> 
+                     <span class="profile-text">{{loggedInUser.music}} rules my world. </span> 
+                     </div>
 
-
-    <div class="form profile">
-<img style="position: absolute"class="discoball"src="/images/disco-ball.gif" alt="">
-      
-        <div class=" image d-flex flex-column justify-content-center align-items-center"> 
-          <br>
+                     <div class="d-flex flex-row justify-content-center align-items-center mt-3"> 
+                     <span class="profile-text"> {{loggedInUser.description}} </span> 
+                     </div>
           
-      <img class="profile-photo" src="https://avatars.dicebear.com/api/{{loggedInUser.avatar}}/{{loggedInUser.name}}.svg" height="150" width="150" />
-{{!--    
-{{#each imageList}}
-      <p>{{this.src}}Hello World</p>
-        {{/each}}  --}}
-
-
-
-        <span class="profile-name">{{loggedInUser.name}}</span>
-         {{!-- <span class="idd">{{loggedInUser.username}}</span> --}}
-            <div><span class="idd1">{{user.data}}</span> 
-            
- 
-<div class="social-links">
-
-      {{#if loggedInUser.url}} 
-        <a class="fa fa-instagram" href="https://instagram.com/{{loggedInUser.url}}" class="fa fa-instagram"></a>
+          <div class="tags">
+          <a href="/parties">Go back to the list</a>
+            {{{isProfileOwner id loggedInUser._id}}}  
+          </div>
         
-          {{/if}}
-
-      {{#if loggedInUser.git}}
-        <a class="fa fa-github" href="https://github.com/{{loggedInUser.git}}" class="fa fa-github"></a>
-          {{/if}}
-
-
-      {{#if loggedInUser.url}} 
-        <a class="fa fa-facebook" href="https://facebook.com/{{loggedInUser.fb}}" class="fa fa-facebook"></a>
-        
-          {{/if}}
-
-            </div>
-<div>
-
-      <span class="profile-text text">🚀 {{formatDate loggedInUser.createdAt}} 
-
-      </span> 
-
-       <span class="profile-text">  Level: {{loggedInUser.age}}
-
-       </span> 
-       
-       <div class="profile-text neighbourhood">📍 {{loggedInUser.location}}
-
-       </div>
-</div>
-
-      
-
-    </div>
-           <span>
-             
-           </span>
-            <div 
-             id="partyType"class="d-flex flex-row justify-content-center align-items-center mt-3"> 
-              <span class="profile-text">{{loggedInUser.partyType}} </span> 
-            
-           
-             
-            </div>
-<br>
-            <div> <span class="profile-text">{{loggedInUser.music}} rules my world.
-              
-            </span> </div>
-
-            
-           
- <div> <span class="profile-text"> {{loggedInUser.description}} 
-              
-            </span> </div>
-            
-
-               {{!-- craete an if statement and only display IF url is given --}}
-
-         
-<div class="tags">
-  
-        <a href="/parties">Go back to the list</a>
-
-{{{isProfileOwner id loggedInUser._id}}}  
-  
-
-
-
-</div>
-        
-               
+     </div>  
+  </div>  
+</div>  
               
             
             
