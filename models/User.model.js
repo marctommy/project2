@@ -31,7 +31,7 @@ const userSchema = new Schema(
     url: {
       type: String,
     },
-    age: { type: Number, default: "18+" },
+    age: String,
     location: { type: String, default: "Berlin - the place to be" },
     music: { type: String, default: "Music" },
     partyType: String,
