@@ -52,7 +52,7 @@ form {
 form h1 {
   color: #fff;
   font-size: 36px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   margin-bottom: 30px;
 }
 
